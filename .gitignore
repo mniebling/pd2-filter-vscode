@@ -1,0 +1,7 @@
+.vscode-test/
+node_modules/
+
+# Built extension files
+*.vsix
+
+.DS_Store

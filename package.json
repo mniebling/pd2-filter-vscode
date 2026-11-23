@@ -1,0 +1,57 @@
+{
+	"name": "pd2-filter",
+	"displayName": "Project Diablo 2 Filter",
+	"description": "Syntax highlighting for Project Diablo 2 loot filters.",
+	"version": "0.0.1",
+	"publisher": "bling",
+	"license": "MIT",
+	"type": "module",
+	"engines": {
+		"vscode": "^1.90.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "pd2filter-basic",
+				"aliases": [
+					"PD2 Filter (Basic)",
+					"pd2filter-basic"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "pd2filter-basic",
+				"scopeName": "source.pd2filter-basic",
+				"path": "./syntaxes/pd2filter-basic.tmLanguage.json"
+			}
+		]
+	},
+	"scripts": {
+		"check": "npm run lint && npm run typecheck && npm test",
+		"lint": "oxlint",
+		"package": "vsce package",
+		"test": "vitest",
+		"typecheck": "tsc"
+	},
+	"devDependencies": {
+		"@mniebling/lint-config": "0.5.0",
+		"@stylistic/eslint-plugin": "6.0.1",
+		"@types/node": "26.6.6",
+		"@vscode/vsce": "4.1.1",
+		"oxlint": "1.95.0",
+		"oxlint-tsgolint": "7.0.2008",
+		"typescript": "7.0.2",
+		"vitest": "5.1.1",
+		"vscode-oniguruma": "2.0.1",
+		"vscode-textmate": "9.3.2"
+	},
+	"allowScripts": {
+		"@vscode/vsce-sign": false,
+		"fsevents": false
+	}
+}

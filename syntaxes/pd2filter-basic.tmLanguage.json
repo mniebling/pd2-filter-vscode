@@ -1,0 +1,17 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+
+	"name": "PD2 Filter (Basic)",
+	"scopeName": "source.pd2filter-basic",
+	"patterns": [
+		{
+			"include": "#line-comment"
+		}
+	],
+	"repository": {
+		"line-comment": {
+			"name": "comment.line.double-slash.pd2filter",
+			"match": "//.*$"
+		}
+	}
+}
