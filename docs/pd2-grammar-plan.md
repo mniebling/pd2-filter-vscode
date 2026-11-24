@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with another small verified output slice. Expand direct value references or add a focused color-keyword group; keep literal output text plain and do not combine unrelated output features.
+Continue milestone 8 with another small verified output slice. Add a focused price/equipment value-reference group or color-keyword group; keep literal output text plain and do not combine unrelated output features.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -104,7 +104,13 @@ After each slice, update the completed-milestone summary and keep `examples/basi
 
 ### 8. ItemDisplay output
 
-The first output slice highlights `%NAME%` and `%SOCKETS%` inside `ItemDisplay` output only. Literal output remains plain, and unsupported or malformed percent references retain output text scopes. `%NAME%` and `%SOCKETS%` were verified against the Item Filtering wiki on 2026-11-24.
+Output references are highlighted inside `ItemDisplay` output only:
+
+- `%NAME%`, `%BASENAME%`
+- `%ALVL%`, `%CRAFTALVL%`, `%ILVL%`, `%REROLLALVL%`, `%LVLREQ%`
+- `%QTY%`, `%RANGE%`, `%SOCKETS%`
+
+Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
 Continue output syntax in separate slices:
 

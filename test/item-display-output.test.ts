@@ -8,7 +8,18 @@ const valueReferenceScope = 'constant.other.value-reference.pd2filter'
 const outputScope = 'meta.output.item-display.pd2filter'
 
 describe('ItemDisplay value references', () => {
-	it.each(['NAME', 'SOCKETS'])('scopes the %%%s%% value reference', async (reference) => {
+	it.each([
+		'ALVL',
+		'BASENAME',
+		'CRAFTALVL',
+		'ILVL',
+		'LVLREQ',
+		'NAME',
+		'QTY',
+		'RANGE',
+		'REROLLALVL',
+		'SOCKETS',
+	])('scopes the %%%s%% value reference', async (reference) => {
 		await expectScopes(`ItemDisplay[]: %${reference}%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -33,7 +44,15 @@ describe('ItemDisplay value references', () => {
 		])
 	})
 
-	it.each(['%name%', '%SOCKET%', '%SOCKETS2%', '%2SOCKETS%', '%NAMEISH%'])(
+	it.each([
+		'%name%',
+		'%ILVLISH%',
+		'%QTY2%',
+		'%SOCKET%',
+		'%SOCKETS2%',
+		'%2SOCKETS%',
+		'%NAMEISH%',
+	])(
 		'does not scope unsupported value reference %s',
 		async (reference) => {
 			await expectScopes(`ItemDisplay[]: ${reference}`, [

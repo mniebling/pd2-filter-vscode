@@ -110,7 +110,7 @@
 			"patterns": [
 				{
 					"name": "constant.other.value-reference.pd2filter",
-					"match": "%(?:NAME|SOCKETS)%"
+					"match": "%(?:ALVL|BASENAME|CRAFTALVL|ILVL|LVLREQ|NAME|QTY|RANGE|REROLLALVL|SOCKETS)%"
 				},
 				{
 					"include": "#line-comment"
