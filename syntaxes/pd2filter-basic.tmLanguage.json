@@ -66,7 +66,7 @@
 			"patterns": [
 				{
 					"name": "support.function.condition-value.pd2filter",
-					"match": "\\b(?:CLVL|GOLD|ILVL|RUNE|SOCKETS)\\b"
+					"match": "\\b(?:ALVL|CLVL|CRAFTALVL|DIFF|FILTLVL|GEMLEVEL|GEMTYPE|GEM|GOLD|ILVL|LVLREQ|MAPID|MAPTIER|PRICE|QLVL|QTY|REROLLALVL|RUNE|SOCKETS)\\b"
 				},
 				{
 					"name": "keyword.operator.arithmetic.pd2filter",

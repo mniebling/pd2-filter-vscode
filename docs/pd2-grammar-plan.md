@@ -85,29 +85,22 @@ The Item Filtering wiki's ordinary condition examples and code ranges document u
 
 ### 7. Initial condition identifiers
 
-Inside `ItemDisplay[...]` only, the following verified value-condition codes are highlighted separately from arbitrary identifiers:
+Inside `ItemDisplay[...]` only, the following verified value-condition info codes are highlighted separately from arbitrary identifiers:
 
-- `CLVL`
-- `GOLD`
-- `ILVL`
-- `RUNE`
-- `SOCKETS`
+- `ALVL`, `CLVL`, `CRAFTALVL`, `REROLLALVL`
+- `DIFF`, `FILTLVL`, `GEM`, `GEMLEVEL`, `GEMTYPE`
+- `GOLD`, `ILVL`, `LVLREQ`, `PRICE`, `QLVL`, `QTY`
+- `MAPID`, `MAPTIER`, `RUNE`, `SOCKETS`
 
 Tests cover uppercase matching, token boundaries, lowercase text, embedded numeric identifiers, and isolation from Alias replacements. The deliberately small catalog was verified against the Item Filtering wiki on 2026-11-24.
 
 ## Handoff: current next action
 
-Continue milestone 7 by deciding whether to extend this verified-condition-code set in another small group before moving to ItemDisplay output. Broader identifiers should remain plain until added to structured, source-dated data.
+Start milestone 8 with a small, verified ItemDisplay output slice. Begin with `%NAME%` and other direct value references, or separate a focused color-keyword slice; keep literal output text plain and do not combine unrelated output features.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
 ## Next slices
-
-### 7b. Extend condition identifiers
-
-Add another small, independently tested set of wiki-verified PD2 condition codes only after confirming aliases and item-code boundaries. Do not introduce a broad catalog until contextual matching is stable.
-
-### 8. ItemDisplay output
 
 ### 8. ItemDisplay output
 

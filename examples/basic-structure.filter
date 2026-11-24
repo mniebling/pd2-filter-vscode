@@ -28,11 +28,14 @@ ItemDisplay[ORACLE DAMAGING_POTIONS]: %NAME%
 ItemDisplay[TRUE]: %NAME%
 ItemDisplay[FALSE]:
 
-// Recognized condition names are highlighted
-ItemDisplay[CLVL>=30 AND SOCKETS=0]: %NAME%
+// Common character and item levels
+ItemDisplay[CLVL>=30 AND ILVL>=85]: %NAME%
 
-// Recognized condition names also work with other comparisons
-ItemDisplay[GOLD<100 OR RUNE>19 OR ILVL>=85]: %NAME%
+// Item details and filter settings
+ItemDisplay[SOCKETS=0 OR GEMLEVEL>3 OR FILTLVL>1]: %NAME%
+
+// Gold, runes, and prices
+ItemDisplay[GOLD<100 OR RUNE>19 OR PRICE>100000]: %NAME%
 
 // Numbers used as condition values are highlighted
 ItemDisplay[CLVL>=30]: %NAME%

@@ -10,7 +10,27 @@ const integerScope = 'constant.numeric.integer.pd2filter'
 const valueConditionScope = 'support.function.condition-value.pd2filter'
 
 describe('condition identifiers', () => {
-	it.each(['CLVL', 'GOLD', 'ILVL', 'RUNE', 'SOCKETS'])('scopes the verified value condition %s', async (condition) => {
+	it.each([
+		'ALVL',
+		'CLVL',
+		'CRAFTALVL',
+		'DIFF',
+		'FILTLVL',
+		'GEM',
+		'GEMLEVEL',
+		'GEMTYPE',
+		'GOLD',
+		'ILVL',
+		'LVLREQ',
+		'MAPID',
+		'MAPTIER',
+		'PRICE',
+		'QLVL',
+		'QTY',
+		'REROLLALVL',
+		'RUNE',
+		'SOCKETS',
+	])('scopes the verified value condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -37,9 +57,16 @@ describe('condition identifiers', () => {
 	})
 
 	it.each([
+		'ALVLISH',
 		'CLVLMAX',
+		'CRAFTALVL2',
+		'GEMSTONE',
+		'GEMTYPE2',
 		'GOLDEN',
 		'ILVLISH',
+		'MAPIDENTIFIER',
+		'PRICELESS',
+		'REROLLALVL2',
 		'RUNENAME',
 		'SOCKETS2',
 		'2SOCKETS',
