@@ -5,6 +5,13 @@ ItemDisplayFilterName[]:
 // ItemDisplay wrapper examples
 ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%
 ItemDisplay[]: %NAME%
+ItemDisplay[(MAG OR RARE) AND !ID]: %NAME%
+
+// Complete Boolean keyword
+ItemDisplay[MAG OR RARE]: %NAME%
+
+// "OR" inside another token remains plain
+ItemDisplay[ORACLE DAMAGING_POTIONS]: %NAME%
 
 // Alias wrapper examples
 Alias[UTILITY_POTIONS]: (yps OR wms OR vps)

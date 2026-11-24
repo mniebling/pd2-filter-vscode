@@ -65,6 +65,14 @@
 			},
 			"patterns": [
 				{
+					"name": "keyword.operator.logical.pd2filter",
+					"match": "\\b(?:AND|OR)\\b|!"
+				},
+				{
+					"name": "punctuation.section.parens.pd2filter",
+					"match": "[()]"
+				},
+				{
 					"include": "#line-comment"
 				}
 			]
