@@ -11,6 +11,9 @@ ItemDisplay[(MAG OR RARE) AND !ID]: %NAME%
 ItemDisplay[CLVL>=30 AND SOCK=0 AND QUALITY!=UNI]: %NAME%
 ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
 
+// BETWEEN range operator with integer bounds
+ItemDisplay[SOCKETS~1-2]: %NAME%
+
 // Complete Boolean keyword
 ItemDisplay[MAG OR RARE]: %NAME%
 

@@ -160,6 +160,21 @@ describe('ItemDisplay', () => {
 			},
 		)
 
+		it('scopes the BETWEEN range operator', async () => {
+			await expectScopes('ItemDisplay[SOCKETS~1-2]: %NAME%', [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: 'SOCKETS', scope: itemDisplayScope },
+				{ text: '~', scope: comparisonOperatorScope },
+				{ text: '1', scope: integerScope },
+				{ text: '-', scope: itemDisplayScope },
+				{ text: '2', scope: integerScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
 		it('does not combine separated comparison characters', async () => {
 			await expectScopes('ItemDisplay[! =MAG]: %NAME%', [
 				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -171,6 +186,17 @@ describe('ItemDisplay', () => {
 				{ text: ']', scope: bracketScope },
 				{ text: ':', scope: colonScope },
 				{ text: ' %NAME%' },
+			])
+		})
+
+		it('does not scope range syntax outside ItemDisplay', async () => {
+			await expectScopes('Alias[SOCKET_RANGE]: SOCKETS~1-2', [
+				{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
+				{ text: '[', scope: bracketScope },
+				{ text: 'SOCKET_RANGE', scope: 'meta.rule.alias.pd2filter' },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' SOCKETS~1-2' },
 			])
 		})
 

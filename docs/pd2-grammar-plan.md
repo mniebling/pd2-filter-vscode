@@ -59,7 +59,16 @@ Inside `ItemDisplay[...]` only:
 
 Tests cover longest-match behavior, separated `! =`, every operator, and context isolation outside `ItemDisplay`.
 
-### 4. Test and package workflow
+### 4. Numeric condition values and ranges
+
+Inside `ItemDisplay[...]` only:
+
+- standalone unsigned integer literals;
+- the documented `~` BETWEEN operator.
+
+Digits embedded in identifiers remain plain, and range bounds retain ordinary integer scopes. PD2's `SOCKETS~1-2` form was verified against the Item Filtering wiki on 2026-11-24; the hyphen itself is intentionally not yet assigned a range-specific scope.
+
+### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper.
 - Tests are organized by grammar feature.
@@ -70,18 +79,17 @@ Tests cover longest-match behavior, separated `! =`, every operator, and context
 
 ## Next slices
 
-### 5. Condition values
+### 6. Condition values
 
-Implement in small, independently tested steps:
+Continue condition-value work in small, independently tested steps:
 
-1. Unsigned integer literals inside `ItemDisplay[...]`.
-2. Research and, if confirmed, add supported decimal forms.
-3. Research and, if confirmed, add supported signed forms.
-4. Research `~` ranges and add them only after confirming their exact operands and boundaries.
+1. Research and, if confirmed, add supported decimal forms.
+2. Research and, if confirmed, add supported signed forms.
+3. Consider a more specific range scope only if later grammar needs it; the documented `~` operator and integer bounds already highlight as composed tokens.
 
 Do not tokenize digits that are part of identifiers, aliases, or item codes.
 
-### 6. Condition identifiers
+### 7. Condition identifiers
 
 Once value syntax is stable, add a minimal set of verified PD2 condition codes before broad catalogs:
 
@@ -91,7 +99,7 @@ Once value syntax is stable, add a minimal set of verified PD2 condition codes b
 
 Only after this behavior is stable should structured condition-code data be introduced.
 
-### 7. ItemDisplay output
+### 8. ItemDisplay output
 
 Recognize output syntax in separate slices:
 
@@ -104,7 +112,7 @@ Recognize output syntax in separate slices:
 
 Literal output text remains plain.
 
-### 8. Aliases and formulas
+### 9. Aliases and formulas
 
 - Determine whether alias references need a distinct scope inside condition/output contexts.
 - Add `Formula[...]` structure separately.
