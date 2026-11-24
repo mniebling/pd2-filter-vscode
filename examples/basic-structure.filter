@@ -87,6 +87,13 @@ ItemDisplay[]: %NAME%%BORDER-00%%MAP-9B%%DOT-62%%PX-84%
 // MAP can use the current text color
 ItemDisplay[]: %ORANGE%%NAME%%MAP%
 
+// Play a drop sound and set notification text color
+ItemDisplay[]: %NAME%%SOUNDID-4714%%NOTIFY-F%
+ItemDisplay[]: %NAME%%NOTIFY-DEAD%%TIER-0%
+
+// Notification tiers can range from 0 through 12
+ItemDisplay[]: %NAME%%TIER-12%
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 

@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with the remaining focused notification keywords: sound, notification text color, and tier filtering; keep each syntax family independently tested.
+Continue milestone 8 with parameterless special output keywords, beginning with `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%`; keep each syntax family independently tested.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -117,14 +117,15 @@ Output references are highlighted inside `ItemDisplay` output only:
 
 Output color keywords are highlighted separately: `%WHITE%`, `%GRAY%`, `%BLUE%`, `%YELLOW%`, `%GOLD%`, `%GREEN%`, `%DARK_GREEN%`, `%TAN%`, `%BLACK%`, `%PURPLE%`, `%RED%`, `%ORANGE%`, `%CORAL%`, `%SAGE%`, `%TEAL%`, and `%LIGHT_GRAY%`.
 
-Map notification keywords are highlighted separately. `%BORDER%`, `%MAP%`, `%DOT%`, and `%PX%` accept a two-digit hexadecimal color suffix; `%MAP%` also works without a suffix. These forms were verified against the Item Filtering wiki on 2026-11-24.
+Map notification keywords are highlighted separately. `%BORDER%`, `%MAP%`, `%DOT%`, and `%PX%` accept a two-digit hexadecimal color suffix; `%MAP%` also works without a suffix.
+
+Additional notification keywords support `%SOUNDID-#%` with a decimal sound index, `%NOTIFY-0%` through `%NOTIFY-F%` plus `%NOTIFY-DEAD%`, and `%TIER-0%` through `%TIER-12%`. These forms were verified against the Item Filtering wiki on 2026-11-24.
 
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
 Continue output syntax in separate slices:
 
-- `%SOUNDID-#%`, `%NOTIFY-0%`, `%NOTIFY-DEAD%`, and `%TIER-#%`;
-- `%CONTINUE%`, `%NL%`, and `%CL%`;
+- `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%`;
 - descriptions in braces;
 - formula interpolation if confirmed by the wiki.
 

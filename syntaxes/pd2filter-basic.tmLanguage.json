@@ -110,7 +110,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.notification.pd2filter",
-					"match": "%(?:(?:BORDER|DOT|PX)-[0-9A-Fa-f]{2}|MAP(?:-[0-9A-Fa-f]{2})?)%"
+					"match": "%(?:(?:BORDER|DOT|PX)-[0-9A-Fa-f]{2}|MAP(?:-[0-9A-Fa-f]{2})?|NOTIFY-(?:[0-9A-Fa-f]|DEAD)|SOUNDID-[0-9]+|TIER-(?:[0-9]|1[0-2]))%"
 				},
 				{
 					"name": "constant.language.color.pd2filter",

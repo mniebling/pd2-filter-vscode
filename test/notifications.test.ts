@@ -63,6 +63,64 @@ describe('ItemDisplay map notifications', () => {
 		])
 	})
 
+	describe('sound, text notification, and tier keywords', () => {
+		it.each(['%SOUNDID-0%', '%SOUNDID-4714%', '%SOUNDID-99999%'])('scopes sound keyword %s', async (keyword) => {
+			await expectScopes(`ItemDisplay[]: ${keyword}`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' ', scope: outputScope },
+				{ text: keyword, scope: notificationScope },
+			])
+		})
+
+		it.each(['%NOTIFY-0%', '%NOTIFY-9%', '%NOTIFY-A%', '%NOTIFY-F%', '%NOTIFY-DEAD%'])('scopes text notification keyword %s', async (keyword) => {
+			await expectScopes(`ItemDisplay[]: ${keyword}`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' ', scope: outputScope },
+				{ text: keyword, scope: notificationScope },
+			])
+		})
+
+		it.each(['0', '1', '9', '10', '11', '12'])('scopes tier %s', async (tier) => {
+			await expectScopes(`ItemDisplay[]: %TIER-${tier}%`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' ', scope: outputScope },
+				{ text: `%TIER-${tier}%`, scope: notificationScope },
+			])
+		})
+
+		it.each([
+			'%SOUNDID%',
+			'%SOUNDID--1%',
+			'%SOUNDID-1.5%',
+			'%NOTIFY%',
+			'%NOTIFY-10%',
+			'%NOTIFY-G%',
+			'%NOTIFY-dead%',
+			'%TIER%',
+			'%TIER-00%',
+			'%TIER-09%',
+			'%TIER-13%',
+			'%TIER-A%',
+		])('does not scope malformed parameter keyword %s', async (keyword) => {
+			await expectScopes(`ItemDisplay[]: ${keyword}`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ` ${keyword}`, scope: outputScope },
+			])
+		})
+	})
+
 	it('does not scope map notifications outside ItemDisplay output', async () => {
 		await expectScopes('Alias[MAP_ICON]: %MAP-9B%', [
 			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
