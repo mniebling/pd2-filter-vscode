@@ -4,6 +4,7 @@ ItemDisplay[]: %NAME%
 
 // Alias wrapper examples
 Alias[UTILITY_POTIONS]: (yps OR wms OR vps)
+Alias[COMMON_POTIONS]: (hp1 OR mp1) // comment after replacement
 Alias[]: replacement
 
 // Inline comments remain comments
