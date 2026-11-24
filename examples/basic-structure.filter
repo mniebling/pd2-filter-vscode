@@ -7,6 +7,10 @@ ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%
 ItemDisplay[]: %NAME%
 ItemDisplay[(MAG OR RARE) AND !ID]: %NAME%
 
+// Comparison operators
+ItemDisplay[CLVL>=30 AND SOCK=0 AND QUALITY!=UNI]: %NAME%
+ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
+
 // Complete Boolean keyword
 ItemDisplay[MAG OR RARE]: %NAME%
 

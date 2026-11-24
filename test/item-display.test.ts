@@ -8,13 +8,16 @@ const bracketScope = 'punctuation.section.brackets.pd2filter'
 const colonScope = 'punctuation.separator.rule.pd2filter'
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
+const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
 
 describe('ItemDisplay', () => {
 	it('scopes only the wrapper', async () => {
 		await expectScopes('ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%', [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
-			{ text: 'GROUND DAMAGING_POTIONS CLVL>9', scope: itemDisplayScope },
+			{ text: 'GROUND DAMAGING_POTIONS CLVL', scope: itemDisplayScope },
+			{ text: '>', scope: comparisonOperatorScope },
+			{ text: '9', scope: itemDisplayScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' %NAME%', scope: rootScope },
@@ -51,6 +54,41 @@ describe('ItemDisplay', () => {
 		])
 	})
 
+	it('scopes comparison operators', async () => {
+		await expectScopes('ItemDisplay[CLVL>=30 AND SOCK=0 AND QUALITY!=UNI]: %NAME%', [
+			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+			{ text: '[', scope: bracketScope },
+			{ text: 'CLVL', scope: itemDisplayScope },
+			{ text: '>=', scope: comparisonOperatorScope },
+			{ text: '30 ', scope: itemDisplayScope },
+			{ text: 'AND', scope: logicalOperatorScope },
+			{ text: ' SOCK', scope: itemDisplayScope },
+			{ text: '=', scope: comparisonOperatorScope },
+			{ text: '0 ', scope: itemDisplayScope },
+			{ text: 'AND', scope: logicalOperatorScope },
+			{ text: ' QUALITY', scope: itemDisplayScope },
+			{ text: '!=', scope: comparisonOperatorScope },
+			{ text: 'UNI', scope: itemDisplayScope },
+			{ text: ']', scope: bracketScope },
+			{ text: ':', scope: colonScope },
+			{ text: ' %NAME%' },
+		])
+	})
+
+	it('does not combine separated comparison characters', async () => {
+		await expectScopes('ItemDisplay[! =MAG]: %NAME%', [
+			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+			{ text: '[', scope: bracketScope },
+			{ text: '!', scope: logicalOperatorScope },
+			{ text: ' ', scope: itemDisplayScope },
+			{ text: '=', scope: comparisonOperatorScope },
+			{ text: 'MAG', scope: itemDisplayScope },
+			{ text: ']', scope: bracketScope },
+			{ text: ':', scope: colonScope },
+			{ text: ' %NAME%' },
+		])
+	})
+
 	it('requires token boundaries around boolean keywords', async () => {
 		await expectScopes('ItemDisplay[ORACLE DAMAGING_POTIONS]: %NAME%', [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -70,6 +108,17 @@ describe('ItemDisplay', () => {
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' (MAG OR RARE) !ID' },
+		])
+	})
+
+	it('does not scope comparison syntax outside ItemDisplay', async () => {
+		await expectScopes('Alias[HIGH_LEVEL]: CLVL>=30', [
+			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
+			{ text: '[', scope: bracketScope },
+			{ text: 'HIGH_LEVEL', scope: 'meta.rule.alias.pd2filter' },
+			{ text: ']', scope: bracketScope },
+			{ text: ':', scope: colonScope },
+			{ text: ' CLVL>=30' },
 		])
 	})
 
