@@ -4,75 +4,144 @@
 
 Evolve this repository from a comments-only grammar into an accurate, maintainable syntax highlighter for Project Diablo 2 loot filters.
 
-The initial grammar must remain deliberately conservative: ambiguous text stays plain rather than receiving a misleading token type.
+The grammar remains deliberately conservative: ambiguous text stays plain rather than receiving a misleading token type. PD2 syntax and code catalogs use the current Project Diablo 2 wiki as their source of truth, and no catalog refresh should be implied without recording its date.
 
-## Current phase: comments only
+## Development approach
 
-- Contribute the `pd2filter-basic` language without claiming the shared `.filter` extension globally.
-- Document path-scoped `files.associations` so projects can opt in only their PD2 files.
-- Highlight only `//` through the end of the line.
-- Treat rule names, aliases, condition codes, operators, values, output keywords, and plain output text as text.
-- Support VS Code's toggle-line-comment behavior.
+- Implement one small syntax slice at a time with inline scope tests.
+- Keep representative inputs readable in the unit tests.
+- Use `examples/` for browsable examples that demonstrate current highlighting.
+- Reserve `test/fixtures/` for tests that consume a whole or multi-line file.
+- Prefer contextual grammar regions over global keyword lists.
+- Require token boundaries and retain explicit false-positive tests.
+- Keep syntax recognition separate from diagnostics and semantic validation.
 
-## Planned phases
+## Completed milestones
 
-### 1. Capture examples and expected scopes
+### 0. Comments
 
-Build a representative fixture suite before adding token rules. Cover:
+- The `pd2filter-basic` language is contributed without globally claiming `.filter`.
+- Full-line and inline `//` comments are highlighted.
+- VS Code's toggle-line-comment behavior is configured.
 
-- `ItemDisplay[conditions]: output`
-- `Alias[name]: replacement`
-- `ItemDisplayFilterName[]:`
-- Comments, including inline comments
-- `AND`, `OR`, `!`, comparisons, and `~` ranges
-- Parenthesized boolean groups
-- `%NAME%` and other value references
-- Color and notification keywords
-- `%CONTINUE%`, `%NL%`, and descriptions in braces
-- Formula syntax once its scope is understood
+### 1. Top-level structure
 
-Store each sample with an expected scope description so grammar regressions are visible.
+The following wrappers are recognized separately:
 
-### 2. Establish token boundaries
-
-All keyword matches must require a token boundary. In particular, never tokenize `MAG` inside an alias such as `DAMAGING_POTIONS`, `SOCK` inside `SOCKETS`, or `THROWING` inside a longer identifier.
-
-Prefer context-specific grammar regions over one global keyword list.
-
-### 3. Parse line structure first
-
-Recognize these top-level forms separately:
-
-- `Alias[...]`: replacement
 - `ItemDisplay[...]`: output
-- `ItemDisplayFilterName[]:` output
-- Comment-only lines
+- `Alias[...]`: replacement
+- `ItemDisplayFilterName[]:` name
 
-Within `ItemDisplay` conditions, distinguish operators, condition codes, item codes, numbers, identifiers, and aliases. Within output, distinguish output keywords, literal text, descriptions, and comments.
+Only rule names, brackets, and separators are styled. Names, conditions, replacements, and output remain plain where later slices have not added syntax.
 
-### 4. Keep the code catalog external to the grammar
+### 2. Boolean conditions
 
-Maintain PD2 item/condition/output code lists as structured data once the language becomes rich enough to benefit. Generate grammar fragments from that data where practical instead of hand-editing repeated giant regular expressions.
+Inside `ItemDisplay[...]` only:
 
-Do not treat this repository as the canonical PD2 syntax specification. Use the current Project Diablo 2 wiki as the source of truth and record the documentation date when updating code lists.
+- `AND`
+- `OR`
+- `!`
+- Parentheses
 
-## Working documentation
+Tests cover keyword boundaries, including `ORACLE` and `DAMAGING_POTIONS`, and verify these tokens remain plain in Alias replacements.
 
-This repository intentionally does not use `.agents` for the implementation plan. The future grammar workflow, research notes, and test expectations live under `docs/` and alongside tests.
+### 3. Comparison conditions
 
-If agent-specific instructions are added later, keep detailed product and syntax documentation in `docs/` and make any skill reference it rather than duplicating it.
+Inside `ItemDisplay[...]` only:
+
+- `>`
+- `<`
+- `=`
+- `>=`
+- `<=`
+- `!=`
+- `==`
+
+Tests cover longest-match behavior, separated `! =`, every operator, and context isolation outside `ItemDisplay`.
+
+### 4. Test and package workflow
+
+- Scope expectations use the shared `expectScopes` helper.
+- Tests are organized by grammar feature.
+- `examples/basic-structure.filter` demonstrates supported structure.
+- Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
+- `npm run check` validates lint, types, and scope tests.
+- `npm run package` creates a versioned VSIX for Extension Development Host or reinstall testing.
+
+## Next slices
+
+### 5. Condition values
+
+Implement in small, independently tested steps:
+
+1. Unsigned integer literals inside `ItemDisplay[...]`.
+2. Research and, if confirmed, add supported decimal forms.
+3. Research and, if confirmed, add supported signed forms.
+4. Research `~` ranges and add them only after confirming their exact operands and boundaries.
+
+Do not tokenize digits that are part of identifiers, aliases, or item codes.
+
+### 6. Condition identifiers
+
+Once value syntax is stable, add a minimal set of verified PD2 condition codes before broad catalogs:
+
+- distinguish code from an arbitrary identifier;
+- preserve item-code and alias boundaries;
+- keep the grammar contextual and conservative.
+
+Only after this behavior is stable should structured condition-code data be introduced.
+
+### 7. ItemDisplay output
+
+Recognize output syntax in separate slices:
+
+- `%NAME%` and other verified value references;
+- colors;
+- notification/action keywords;
+- `%CONTINUE%`, `%NL%`, and `%CL%`;
+- descriptions in braces;
+- formula interpolation if confirmed by the wiki.
+
+Literal output text remains plain.
+
+### 8. Aliases and formulas
+
+- Determine whether alias references need a distinct scope inside condition/output contexts.
+- Add `Formula[...]` structure separately.
+- Add `$f(...)` and named formula references only after their grammar is verified.
+- Keep alias and formula expansion semantic behavior out of the highlighter.
+
+## Catalog strategy
+
+Once enough contextual syntax exists to benefit:
+
+- Maintain PD2 condition, item, and output catalogs as structured data.
+- Generate large grammar alternatives instead of hand-editing giant regular expressions.
+- Record the source URL and refresh date for every catalog update.
+- Use current Project Diablo 2 wiki documentation as the source of truth.
+- Do not claim that this extension is the canonical PD2 syntax specification.
+
+The prior VS Code extension and public filters are useful for examples and migration ideas, but their old or broad keyword sets must not bypass wiki verification and boundary tests.
 
 ## Validation plan
 
-- Add fixture-driven TextMate scope tests.
-- Verify keyword-boundary cases explicitly.
-- Package the extension with `@vscode/vsce`.
-- Manually test in a VS Code Extension Development Host.
-- Test with a real PD2 filter containing aliases, hide rules, `%CONTINUE%`, and item tags.
+- Continue inline TextMate scope tests for focused behavior.
+- Add whole-file fixtures only when multi-line state or whole-file behavior matters.
+- Verify every keyword boundary explicitly where substring matches are plausible.
+- Add a bounded corpus smoke test using selected real filters.
+- Validate copies locally rather than vendoring large or restrictively licensed filter files as fixtures.
+- Package milestone builds with `@vscode/vsce`.
+- Inspect scopes and rendering in a VS Code Extension Development Host.
+- Test a real PD2 filter containing aliases, hide rules, `%CONTINUE%`, and item tags before a complete-grammar release.
 
-## Non-goals for the initial release
+## Security
+
+Filter text remains data and is never evaluated as JavaScript or shell commands. Grammar patterns should stay simple and bounded to reduce regular-expression denial-of-service risk on long or crafted lines.
+
+## Non-goals
 
 - No semantic validation or diagnostics.
-- No attempt to prove that every item code or stat is current.
+- No automatic proving that every item code or stat is current.
 - No automatic editing of a user's PD2 installation.
 - No auto-fixing rules that could silently change filter behavior.
+- No global `.filter` association; other tools and games use that extension.
