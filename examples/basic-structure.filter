@@ -14,8 +14,14 @@ ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
 // Complete Boolean keyword
 ItemDisplay[MAG OR RARE]: %NAME%
 
-// "OR" inside another token remains plain
+// "OR" inside another token stays plain
 ItemDisplay[ORACLE DAMAGING_POTIONS]: %NAME%
+
+// Standalone unsigned integers are highlighted
+ItemDisplay[CLVL>=30 AND SOCK=0]: %NAME%
+
+// Digits within identifiers stay plain
+ItemDisplay[ITEM2 SKILL30 2POTIONS]: %NAME%
 
 // Alias wrapper examples
 Alias[UTILITY_POTIONS]: (yps OR wms OR vps)

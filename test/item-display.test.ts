@@ -9,6 +9,7 @@ const colonScope = 'punctuation.separator.rule.pd2filter'
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
 const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
+const integerScope = 'constant.numeric.integer.pd2filter'
 
 describe('ItemDisplay', () => {
 	it('scopes the rule structure and comparison operator', async () => {
@@ -17,7 +18,7 @@ describe('ItemDisplay', () => {
 			{ text: '[', scope: bracketScope },
 			{ text: 'GROUND DAMAGING_POTIONS CLVL', scope: itemDisplayScope },
 			{ text: '>', scope: comparisonOperatorScope },
-			{ text: '9', scope: itemDisplayScope },
+			{ text: '9', scope: integerScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' %NAME%', scope: rootScope },
@@ -105,6 +106,43 @@ describe('ItemDisplay', () => {
 		})
 	})
 
+	describe('integer values', () => {
+		it.each(['0', '9', '30', '5000'])('scopes the unsigned integer %s', async (integer) => {
+			await expectScopes(`ItemDisplay[CLVL>${integer}]: %NAME%`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: 'CLVL', scope: itemDisplayScope },
+				{ text: '>', scope: comparisonOperatorScope },
+				{ text: integer, scope: integerScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
+		it.each(['ITEM2', 'SKILL30', '2POTIONS'])('does not scope digits inside identifier %s', async (identifier) => {
+			await expectScopes(`ItemDisplay[${identifier}]: %NAME%`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: identifier, scope: itemDisplayScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
+		it('does not scope integers outside ItemDisplay', async () => {
+			await expectScopes('Alias[UTILITY]: CLVL>30', [
+				{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
+				{ text: '[', scope: bracketScope },
+				{ text: 'UTILITY', scope: 'meta.rule.alias.pd2filter' },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' CLVL>30' },
+			])
+		})
+	})
+
 	describe('comparison syntax', () => {
 		it.each(['>', '<', '=', '>=', '<=', '!=', '=='])(
 			'scopes the %s operator',
@@ -114,7 +152,7 @@ describe('ItemDisplay', () => {
 					{ text: '[', scope: bracketScope },
 					{ text: 'CLVL', scope: itemDisplayScope },
 					{ text: operator, scope: comparisonOperatorScope },
-					{ text: '30', scope: itemDisplayScope },
+					{ text: '30', scope: integerScope },
 					{ text: ']', scope: bracketScope },
 					{ text: ':', scope: colonScope },
 					{ text: ' %NAME%' },
