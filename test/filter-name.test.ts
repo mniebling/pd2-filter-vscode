@@ -25,13 +25,11 @@ describe('ItemDisplayFilterName', () => {
 		])
 	})
 
-	it('does not scope partial keywords', async () => {
-		for (const line of [
-			'NotItemDisplayFilterName[]: My Filter',
-			'ItemDisplayFilterName-ish[]: My Filter',
-		]) {
-			await expectScopes(line, [{ text: line }])
-		}
+	it.each([
+		['leading identifier', 'NotItemDisplayFilterName[]: My Filter'],
+		['trailing identifier', 'ItemDisplayFilterName-ish[]: My Filter'],
+	])('does not scope a partial keyword with a %s', async (_, line) => {
+		await expectScopes(line, [{ text: line }])
 	})
 
 	it('does not match ItemDisplay inside the longer keyword', async () => {

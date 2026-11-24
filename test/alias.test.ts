@@ -28,12 +28,10 @@ describe('Alias', () => {
 		])
 	})
 
-	it('does not scope partial keywords', async () => {
-		for (const line of [
-			'NotAlias[UTILITY]: replacement',
-			'Alias-like[UTILITY]: replacement',
-		]) {
-			await expectScopes(line, [{ text: line }])
-		}
+	it.each([
+		['leading identifier', 'NotAlias[UTILITY]: replacement'],
+		['trailing identifier', 'Alias-like[UTILITY]: replacement'],
+	])('does not scope a partial keyword with a %s', async (_, line) => {
+		await expectScopes(line, [{ text: line }])
 	})
 })
