@@ -73,7 +73,7 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 ### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
-- Tests are organized by flat, feature-focused files, including `item-display-structure.test.ts`, `item-display-boolean.test.ts`, `item-display-comparison.test.ts`, `item-display-values.test.ts`, and `item-display-identifiers.test.ts` under `test/`.
+- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, and `colors.test.ts` under `test/`.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
