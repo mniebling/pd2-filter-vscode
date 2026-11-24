@@ -31,6 +31,7 @@ The following wrappers are recognized separately:
 - `ItemDisplay[...]`: output
 - `Alias[...]`: replacement
 - `ItemDisplayFilterName[]:` name
+- `Formula[...]`: named formula definition
 
 Only rule names, brackets, and separators are styled. Names, conditions, replacements, and output remain plain where later slices have not added syntax.
 
@@ -94,13 +95,7 @@ Inside `ItemDisplay[...]` only, the following verified value-condition info code
 
 Tests cover uppercase matching, token boundaries, lowercase text, embedded numeric identifiers, and isolation from Alias replacements. The deliberately small catalog was verified against the Item Filtering wiki on 2026-11-24.
 
-## Handoff: current next action
-
-Continue milestone 9 by determining whether alias references need a distinct scope inside ItemDisplay condition and output contexts. Keep semantic alias/formula expansion and evaluation out of the grammar.
-
-After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
-
-## Next slices
+## Completed output and formula milestones
 
 ### 8. ItemDisplay output
 
@@ -129,16 +124,19 @@ ItemDisplay output recognizes balanced inline `$f(...)` formulas and named `%FOR
 
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
-Literal output text remains plain.
-
-### 9. Aliases and formulas
+### 9. Formula definitions and references
 
 - `Formula[KEY]: expression` wrappers are recognized for non-empty keys containing only `A-Z` or `_`.
 - Formula names, wrapper punctuation, expression operators, decimals, parentheses, commas, and inline comments are highlighted structurally.
 - `$f(...)` and `%FORMULA_KEY%` references are recognized in ItemDisplay output and remain contextual.
 - Bare formula references are recognized inside ItemDisplay conditions. Input references require uppercase `F`; the remaining letters are case-insensitive. Percent-wrapped references remain output-only.
-- Determine whether alias references need a distinct scope inside condition/output contexts.
-- Keep alias and formula expansion semantic behavior out of the highlighter.
+- Alias and formula expansion semantics remain outside the highlighter.
+
+## Handoff: current next action
+
+Research alias-reference syntax and decide whether alias uses can be distinguished from arbitrary condition identifiers and literal output. If a reliable, contextual distinction exists, implement one small slice with boundary and false-positive tests. Otherwise record the limitation and move to the catalog strategy or a whole-file corpus smoke test.
+
+After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
 ## Catalog strategy
 
