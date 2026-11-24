@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 only if the wiki confirms formula interpolation syntax in ItemDisplay output; otherwise move to milestone 9 for aliases and formulas.
+Milestone 8 output syntax is complete. Move to milestone 9 by recognizing `Formula[...]` structure, then carefully extend formula-reference handling to condition contexts.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -125,11 +125,9 @@ Parameterless special output controls `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%` a
 
 Balanced item-description braces are highlighted as structural punctuation with a description meta-scope. Output keywords continue to highlight inside descriptions; literal description text remains plain. `%CONTINUE%` is recognized syntactically inside braces but, per the wiki, only functions outside them. These forms were verified against the Item Filtering wiki on 2026-11-24.
 
+ItemDisplay output recognizes balanced inline `$f(...)` formulas and named `%FORMULA_[A-Z_]+%` references. Inline delimiters, documented operators, numbers, and argument separators receive structural scopes; expression identifiers remain plain, and this does not perform semantic formula validation.
+
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
-
-Continue output syntax in separate slices:
-
-- formula interpolation if confirmed by the wiki.
 
 Literal output text remains plain.
 

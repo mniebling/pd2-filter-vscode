@@ -111,6 +111,13 @@ ItemDisplay[]: %NAME%{%DARK_GREEN%$%PRICE%}%CONTINUE%
 // Descriptions can still be shown for hidden items
 ItemDisplay[]: {%NAME%}
 
+// Inline formulas in output
+ItemDisplay[]: Total: $f(STAT1+STAT2)
+ItemDisplay[]: Rounded: $f(ROUND((STAT1+1.5)/2, 0))
+
+// Named formula references
+ItemDisplay[]: Damage: %FORMULA_DAMAGE_TOTAL%
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 

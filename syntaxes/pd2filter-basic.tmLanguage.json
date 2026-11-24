@@ -109,6 +109,30 @@
 			"name": "meta.output.item-display.pd2filter",
 			"patterns": [
 				{
+					"name": "meta.formula.inline.pd2filter",
+					"begin": "\\$f\\((?=[^)]*\\))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.formula.pd2filter"
+						}
+					},
+					"end": "\\)(?![^)]*\\))",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.formula.pd2filter"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#formula-expression"
+						}
+					]
+				},
+				{
+					"name": "constant.other.formula-reference.pd2filter",
+					"match": "%FORMULA_[A-Z_]+%"
+				},
+				{
 					"name": "meta.description.item-display.pd2filter",
 					"begin": "\\{(?=[^}]*\\})",
 					"beginCaptures": {
@@ -146,6 +170,26 @@
 				},
 				{
 					"include": "#line-comment"
+				}
+			]
+		},
+		"formula-expression": {
+			"patterns": [
+				{
+					"name": "punctuation.definition.formula.pd2filter",
+					"match": "[()]"
+				},
+				{
+					"name": "keyword.operator.formula.pd2filter",
+					"match": "(?:==|!=|>=|<=|[+*/^!<>-])"
+				},
+				{
+					"name": "constant.numeric.formula.pd2filter",
+					"match": "(?<![A-Za-z0-9_])(?:\\d+\\.\\d+|\\.\\d+|\\d+)(?![A-Za-z0-9_])"
+				},
+				{
+					"name": "punctuation.separator.formula.pd2filter",
+					"match": ","
 				}
 			]
 		},
