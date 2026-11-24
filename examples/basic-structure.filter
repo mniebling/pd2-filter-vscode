@@ -94,6 +94,16 @@ ItemDisplay[]: %NAME%%NOTIFY-DEAD%%TIER-0%
 // Notification tiers can range from 0 through 12
 ItemDisplay[]: %NAME%%TIER-12%
 
+// Continue checking later rules
+ItemDisplay[SOCKETS>0]: %NAME% [%SOCKETS%]%CONTINUE%
+
+// Add new lines without accidental blanks
+ItemDisplay[]: Item Level: %ILVL%%NL%Sockets: %SOCKETS%
+ItemDisplay[]: First%CL%Second
+
+// Add a space only when needed
+ItemDisplay[]: %NAME%%CS%[%ILVL%]
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 

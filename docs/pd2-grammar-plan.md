@@ -73,7 +73,7 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 ### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
-- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, `colors.test.ts`, and `notifications.test.ts` under `test/`.
+- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, `colors.test.ts`, and `notifications.test.ts`, and `special-output.test.ts` under `test/`.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with parameterless special output keywords, beginning with `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%`; keep each syntax family independently tested.
+Continue milestone 8 with item-description braces, including keyword highlighting and braces without assigning semantics to literal description text.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -119,13 +119,14 @@ Output color keywords are highlighted separately: `%WHITE%`, `%GRAY%`, `%BLUE%`,
 
 Map notification keywords are highlighted separately. `%BORDER%`, `%MAP%`, `%DOT%`, and `%PX%` accept a two-digit hexadecimal color suffix; `%MAP%` also works without a suffix.
 
-Additional notification keywords support `%SOUNDID-#%` with a decimal sound index, `%NOTIFY-0%` through `%NOTIFY-F%` plus `%NOTIFY-DEAD%`, and `%TIER-0%` through `%TIER-12%`. These forms were verified against the Item Filtering wiki on 2026-11-24.
+Additional notification keywords support `%SOUNDID-#%` with a decimal sound index, `%NOTIFY-0%` through `%NOTIFY-F%` plus `%NOTIFY-DEAD%`, and `%TIER-0%` through `%TIER-12%`.
+
+Parameterless special output controls `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%` are highlighted separately. These forms were verified against the Item Filtering wiki on 2026-11-24.
 
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
 Continue output syntax in separate slices:
 
-- `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%`;
 - descriptions in braces;
 - formula interpolation if confirmed by the wiki.
 
