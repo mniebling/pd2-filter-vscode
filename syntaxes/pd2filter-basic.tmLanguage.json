@@ -65,6 +65,10 @@
 			},
 			"patterns": [
 				{
+					"name": "constant.language.boolean.pd2filter",
+					"match": "\\b(?:TRUE|FALSE)\\b"
+				},
+				{
 					"name": "constant.numeric.integer.pd2filter",
 					"match": "(?<![A-Za-z0-9_])\\d+(?![A-Za-z0-9_])"
 				},

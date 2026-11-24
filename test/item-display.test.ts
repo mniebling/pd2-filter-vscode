@@ -10,6 +10,7 @@ const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
 const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
 const integerScope = 'constant.numeric.integer.pd2filter'
+const booleanScope = 'constant.language.boolean.pd2filter'
 
 describe('ItemDisplay', () => {
 	it('scopes the rule structure and comparison operator', async () => {
@@ -102,6 +103,46 @@ describe('ItemDisplay', () => {
 				{ text: ']', scope: bracketScope },
 				{ text: ':', scope: colonScope },
 				{ text: ' (MAG OR RARE) !ID' },
+			])
+		})
+	})
+
+	describe('boolean values', () => {
+		it.each(['TRUE', 'FALSE'])('scopes the %s value', async (value) => {
+			await expectScopes(`ItemDisplay[${value}]: %NAME%`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: value, scope: booleanScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
+		it.each([
+			['lowercase true', 'true'],
+			['lowercase false', 'false'],
+			['TRUE in a longer identifier', 'TRUEISH'],
+			['FALSE in a longer identifier', 'FALSEHOOD'],
+		])('%s is not scoped', async (_, value) => {
+			await expectScopes(`ItemDisplay[${value}]: %NAME%`, [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: value, scope: itemDisplayScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
+		it('does not scope boolean constants outside ItemDisplay', async () => {
+			await expectScopes('Alias[ENABLED]: TRUE', [
+				{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
+				{ text: '[', scope: bracketScope },
+				{ text: 'ENABLED', scope: 'meta.rule.alias.pd2filter' },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' TRUE' },
 			])
 		})
 	})
