@@ -4,6 +4,9 @@
 	"scopeName": "source.pd2filter-basic",
 	"patterns": [
 		{
+			"include": "#filter-name-rule"
+		},
+		{
 			"include": "#item-display-rule"
 		},
 		{
@@ -14,6 +17,32 @@
 		}
 	],
 	"repository": {
+		"filter-name-rule": {
+			"name": "meta.rule.filter-name.pd2filter",
+			"begin": "^\\s*(ItemDisplayFilterName)(\\[)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.filter-name.pd2filter"
+				},
+				"2": {
+					"name": "punctuation.section.brackets.pd2filter"
+				}
+			},
+			"end": "(\\])(?=\\s*:)(\\s*)(:)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.brackets.pd2filter"
+				},
+				"3": {
+					"name": "punctuation.separator.rule.pd2filter"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#line-comment"
+				}
+			]
+		},
 		"item-display-rule": {
 			"name": "meta.rule.item-display.pd2filter",
 			"begin": "^\\s*(ItemDisplay)(\\[)",

@@ -1,3 +1,7 @@
+// Filter name wrapper examples
+ItemDisplayFilterName[]: My PD2 Filter
+ItemDisplayFilterName[]:
+
 // ItemDisplay wrapper examples
 ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%
 ItemDisplay[]: %NAME%
