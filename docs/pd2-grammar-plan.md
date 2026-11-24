@@ -72,12 +72,18 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 
 ### 5. Test and package workflow
 
-- Scope expectations use the shared `expectScopes` helper.
-- Tests are organized by grammar feature.
+- Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
+- Tests are organized by flat, feature-focused files, including `item-display-structure.test.ts`, `item-display-boolean.test.ts`, `item-display-comparison.test.ts`, and `item-display-values.test.ts` under `test/`.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
 - `npm run package` creates a versioned VSIX for Extension Development Host or reinstall testing.
+
+## Handoff: current next action
+
+Start with milestone 6 below: verify the wiki's documented decimal and signed-value forms before implementing either. Do not guess from JavaScript or formula syntax. If neither is supported for ordinary value conditions, record that finding and move to milestone 7 instead.
+
+After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
 ## Next slices
 

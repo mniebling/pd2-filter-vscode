@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository provides a VS Code syntax-highlighting extension for Project Diablo 2 loot filters. The initial grammar is intentionally conservative: only `//` comments receive special scopes; all other filter content remains plain text until a complete, tested PD2 grammar is added.
+This repository provides a VS Code syntax-highlighting extension for Project Diablo 2 loot filters. The grammar is intentionally incremental and conservative: add only verified, context-specific syntax, and leave ambiguous content plain until a focused, tested slice supports it. The current implementation and roadmap are documented in `docs/pd2-grammar-plan.md`.
 
 ## Editing workflow
 
