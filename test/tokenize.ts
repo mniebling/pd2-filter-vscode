@@ -42,3 +42,18 @@ export async function tokenizeLine(line: string) {
 		scopes: token.scopes,
 	}))
 }
+
+export interface ExpectedToken {
+	text: string
+	scope?: string
+}
+
+export async function expectScopes(line: string, expected: ExpectedToken[]) {
+	const tokens = await tokenizeLine(line)
+	const actual = tokens.map(({ text, scopes }) => ({ text, scope: scopes.at(-1) }))
+	const normalizedExpected = expected.map(({ text, scope = scopeName }) => ({ text, scope }))
+
+	if (JSON.stringify(actual) !== JSON.stringify(normalizedExpected)) {
+		throw new Error(`Unexpected scopes for ${JSON.stringify(line)}\nExpected: ${JSON.stringify(normalizedExpected, null, 2)}\nActual: ${JSON.stringify(actual, null, 2)}`)
+	}
+}

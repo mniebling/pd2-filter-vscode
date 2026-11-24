@@ -1,7 +1,10 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit",
-    "source.organizeImports": "explicit"
-  },
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+	"editor.codeActionsOnSave": {
+		"source.fixAll.oxc": "explicit",
+		"source.organizeImports": "explicit"
+	},
+	"files.associations": {
+		"*.filter": "pd2filter-basic"
+	},
+	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }

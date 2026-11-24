@@ -6,7 +6,9 @@ This repository provides a VS Code syntax-highlighting extension for Project Dia
 
 ## Editing workflow
 
-- Add or update inline scope tests whenever grammar behavior changes.
+- Add or update inline scope tests whenever grammar behavior changes. Keep short grammar inputs inline in unit tests so the text and expected scopes can be reviewed together.
+- Use `test/fixtures/` only when the test must consume an entire file, such as multi-line state or whole-file regression cases. Do not hide small, representative lines in fixture files.
+- Put browsable `.filter` samples and reference examples under `examples/`; these are intended to show what the extension supports rather than act as per-test data.
 - Run `npm run check` after edits.
 - Run `npm run package` when validating the extension artifact.
 - Do not add a global `.filter` extension association: other tools and games also use that extension. Document path-scoped workspace associations instead.

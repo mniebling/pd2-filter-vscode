@@ -1,0 +1,14 @@
+// ItemDisplay wrapper examples
+ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%
+ItemDisplay[]: %NAME%
+
+// Inline comments remain comments
+ItemDisplay[MAG]: %NAME% // keep visible
+// Hide utility potions at level 30
+
+// Partial keyword matches remain plain text
+NotItemDisplay[MAG]: %NAME%
+ItemDisplay-ish[MAG]: %NAME%
+
+// Other rule types are intentionally unstyled for this slice
+Alias[UTILITY_POTIONS]: (yps OR wms OR vps)
