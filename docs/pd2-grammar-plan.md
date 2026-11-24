@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 9 by checking formula-reference handling inside ItemDisplay condition contexts before expanding alias-reference scopes. Keep semantic formula validation and evaluation out of the grammar.
+Continue milestone 9 by determining whether alias references need a distinct scope inside ItemDisplay condition and output contexts. Keep semantic alias/formula expansion and evaluation out of the grammar.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -136,7 +136,7 @@ Literal output text remains plain.
 - `Formula[KEY]: expression` wrappers are recognized for non-empty keys containing only `A-Z` or `_`.
 - Formula names, wrapper punctuation, expression operators, decimals, parentheses, commas, and inline comments are highlighted structurally.
 - `$f(...)` and `%FORMULA_KEY%` references are recognized in ItemDisplay output and remain contextual.
-- Determine whether named formula references need distinct handling inside condition contexts.
+- Bare formula references are recognized inside ItemDisplay conditions. Input references require uppercase `F`; the remaining letters are case-insensitive. Percent-wrapped references remain output-only.
 - Determine whether alias references need a distinct scope inside condition/output contexts.
 - Keep alias and formula expansion semantic behavior out of the highlighter.
 

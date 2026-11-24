@@ -119,7 +119,11 @@ Formula[ROUNDED_DAMAGE]: ROUND((STAT1+1.5)/2, 0)
 ItemDisplay[]: Total: $f(STAT1+STAT2)
 ItemDisplay[]: Rounded: $f(ROUND((STAT1+1.5)/2, 0))
 
-// Named formula references
+// Named formula references in conditions
+ItemDisplay[FORMULA_DAMAGE_TOTAL>25]: %NAME%
+ItemDisplay[Formula_damage_total]: %NAME%
+
+// Named formula references in output
 ItemDisplay[]: Damage: %FORMULA_DAMAGE_TOTAL%
 ItemDisplay[]: Rounded damage: %FORMULA_ROUNDED_DAMAGE%
 
