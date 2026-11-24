@@ -11,14 +11,24 @@ describe('ItemDisplay value references', () => {
 	it.each([
 		'ALVL',
 		'BASENAME',
+		'BUYPRICE',
+		'CODE',
 		'CRAFTALVL',
+		'GEMLEVEL',
+		'GEMTYPE',
 		'ILVL',
 		'LVLREQ',
+		'MAXSOCKETS',
 		'NAME',
+		'PRICE',
 		'QTY',
 		'RANGE',
 		'REROLLALVL',
+		'RUNENAME',
+		'RUNENUM',
+		'SELLPRICE',
 		'SOCKETS',
+		'WPNSPD',
 	])('scopes the %%%s%% value reference', async (reference) => {
 		await expectScopes(`ItemDisplay[]: %${reference}%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -46,7 +56,10 @@ describe('ItemDisplay value references', () => {
 
 	it.each([
 		'%name%',
+		'%BUYPRICELESS%',
+		'%CODE2%',
 		'%ILVLISH%',
+		'%MAXSOCKETS2%',
 		'%QTY2%',
 		'%SOCKET%',
 		'%SOCKETS2%',

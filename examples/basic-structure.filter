@@ -50,6 +50,14 @@ ItemDisplay[]: %BASENAME% (requires level %LVLREQ%)
 // Character and quantity details in output
 ItemDisplay[]: %CRAFTALVL% / %REROLLALVL% / %QTY%
 
+// Prices and item codes
+ItemDisplay[]: %CODE% costs %BUYPRICE% and sells for %PRICE%
+ItemDisplay[]: Alternate sell price: %SELLPRICE%
+
+// Rune, gem, and socket details
+ItemDisplay[]: %RUNENAME% #%RUNENUM% / %GEMTYPE% %GEMLEVEL%
+ItemDisplay[]: %SOCKETS% of %MAXSOCKETS% sockets, speed %WPNSPD%
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 

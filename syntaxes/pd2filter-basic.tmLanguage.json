@@ -110,7 +110,7 @@
 			"patterns": [
 				{
 					"name": "constant.other.value-reference.pd2filter",
-					"match": "%(?:ALVL|BASENAME|CRAFTALVL|ILVL|LVLREQ|NAME|QTY|RANGE|REROLLALVL|SOCKETS)%"
+					"match": "%(?:ALVL|BASENAME|BUYPRICE|CODE|CRAFTALVL|GEMLEVEL|GEMTYPE|ILVL|LVLREQ|MAXSOCKETS|NAME|PRICE|QTY|RANGE|REROLLALVL|RUNENAME|RUNENUM|SELLPRICE|SOCKETS|WPNSPD)%"
 				},
 				{
 					"include": "#line-comment"
