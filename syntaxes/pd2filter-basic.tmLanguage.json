@@ -109,6 +109,26 @@
 			"name": "meta.output.item-display.pd2filter",
 			"patterns": [
 				{
+					"name": "meta.description.item-display.pd2filter",
+					"begin": "\\{(?=[^}]*\\})",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.braces.pd2filter"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.braces.pd2filter"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#item-display-output"
+						}
+					]
+				},
+				{
 					"name": "keyword.control.output.pd2filter",
 					"match": "%(?:CL|CONTINUE|CS|NL)%"
 				},

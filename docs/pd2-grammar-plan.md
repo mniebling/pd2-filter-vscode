@@ -73,7 +73,7 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 ### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
-- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, `colors.test.ts`, and `notifications.test.ts`, and `special-output.test.ts` under `test/`.
+- Tests are organized by flat, feature-focused files.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with item-description braces, including keyword highlighting and braces without assigning semantics to literal description text.
+Continue milestone 8 only if the wiki confirms formula interpolation syntax in ItemDisplay output; otherwise move to milestone 9 for aliases and formulas.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -121,13 +121,14 @@ Map notification keywords are highlighted separately. `%BORDER%`, `%MAP%`, `%DOT
 
 Additional notification keywords support `%SOUNDID-#%` with a decimal sound index, `%NOTIFY-0%` through `%NOTIFY-F%` plus `%NOTIFY-DEAD%`, and `%TIER-0%` through `%TIER-12%`.
 
-Parameterless special output controls `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%` are highlighted separately. These forms were verified against the Item Filtering wiki on 2026-11-24.
+Parameterless special output controls `%CONTINUE%`, `%NL%`, `%CL%`, and `%CS%` are highlighted separately.
+
+Balanced item-description braces are highlighted as structural punctuation with a description meta-scope. Output keywords continue to highlight inside descriptions; literal description text remains plain. `%CONTINUE%` is recognized syntactically inside braces but, per the wiki, only functions outside them. These forms were verified against the Item Filtering wiki on 2026-11-24.
 
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
 Continue output syntax in separate slices:
 
-- descriptions in braces;
 - formula interpolation if confirmed by the wiki.
 
 Literal output text remains plain.
