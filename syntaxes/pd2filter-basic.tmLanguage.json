@@ -10,6 +10,9 @@
 			"include": "#item-display-rule"
 		},
 		{
+			"include": "#formula-rule"
+		},
+		{
 			"include": "#alias-rule"
 		},
 		{
@@ -192,6 +195,39 @@
 					"match": ","
 				}
 			]
+		},
+		"formula-rule": {
+			"name": "meta.rule.formula.pd2filter",
+			"begin": "^\\s*(Formula)(\\[)([A-Z_]+)(\\])(?=\\s*:)(\\s*)(:)(.*)$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.formula.pd2filter"
+				},
+				"2": {
+					"name": "punctuation.section.brackets.pd2filter"
+				},
+				"3": {
+					"name": "entity.name.function.formula.pd2filter"
+				},
+				"4": {
+					"name": "punctuation.section.brackets.pd2filter"
+				},
+				"6": {
+					"name": "punctuation.separator.rule.pd2filter"
+				},
+				"7": {
+					"name": "meta.definition.formula.pd2filter",
+					"patterns": [
+						{
+							"include": "#line-comment"
+						},
+						{
+							"include": "#formula-expression"
+						}
+					]
+				}
+			},
+			"end": "(?=$)"
 		},
 		"alias-rule": {
 			"name": "meta.rule.alias.pd2filter",
