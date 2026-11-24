@@ -109,6 +109,10 @@
 			"name": "meta.output.item-display.pd2filter",
 			"patterns": [
 				{
+					"name": "keyword.control.notification.pd2filter",
+					"match": "%(?:(?:BORDER|DOT|PX)-[0-9A-Fa-f]{2}|MAP(?:-[0-9A-Fa-f]{2})?)%"
+				},
+				{
 					"name": "constant.language.color.pd2filter",
 					"match": "%(?:BLACK|BLUE|CORAL|DARK_GREEN|GOLD|GRAY|GREEN|LIGHT_GRAY|ORANGE|PURPLE|RED|SAGE|TAN|TEAL|WHITE|YELLOW)%"
 				},

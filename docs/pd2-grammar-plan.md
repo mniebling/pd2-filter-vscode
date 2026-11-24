@@ -73,7 +73,7 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 ### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
-- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, and `colors.test.ts` under `test/`.
+- Tests are organized by flat, feature-focused files, including `structure.test.ts`, `boolean.test.ts`, `comparison.test.ts`, `values.test.ts`, `identifiers.test.ts`, `output.test.ts`, `colors.test.ts`, and `notifications.test.ts` under `test/`.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with a focused notification/action-keyword group; keep literal output text plain and do not combine unrelated output features.
+Continue milestone 8 with the remaining focused notification keywords: sound, notification text color, and tier filtering; keep each syntax family independently tested.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -117,11 +117,13 @@ Output references are highlighted inside `ItemDisplay` output only:
 
 Output color keywords are highlighted separately: `%WHITE%`, `%GRAY%`, `%BLUE%`, `%YELLOW%`, `%GOLD%`, `%GREEN%`, `%DARK_GREEN%`, `%TAN%`, `%BLACK%`, `%PURPLE%`, `%RED%`, `%ORANGE%`, `%CORAL%`, `%SAGE%`, `%TEAL%`, and `%LIGHT_GRAY%`.
 
+Map notification keywords are highlighted separately. `%BORDER%`, `%MAP%`, `%DOT%`, and `%PX%` accept a two-digit hexadecimal color suffix; `%MAP%` also works without a suffix. These forms were verified against the Item Filtering wiki on 2026-11-24.
+
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 
 Continue output syntax in separate slices:
 
-- notification/action keywords;
+- `%SOUNDID-#%`, `%NOTIFY-0%`, `%NOTIFY-DEAD%`, and `%TIER-#%`;
 - `%CONTINUE%`, `%NL%`, and `%CL%`;
 - descriptions in braces;
 - formula interpolation if confirmed by the wiki.

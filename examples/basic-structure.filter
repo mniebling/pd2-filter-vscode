@@ -81,6 +81,12 @@ ItemDisplay[]: %CORAL%Coral %SAGE%Sage %TEAL%Teal %LIGHT_GRAY%Light gray
 // Colors beside item values
 ItemDisplay[]: %RED%%NAME%%GRAY% [%SOCKETS%]
 
+// Map icons use a two-digit hex color
+ItemDisplay[]: %NAME%%BORDER-00%%MAP-9B%%DOT-62%%PX-84%
+
+// MAP can use the current text color
+ItemDisplay[]: %ORANGE%%NAME%%MAP%
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 
