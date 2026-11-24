@@ -8,6 +8,7 @@ const colonScope = 'punctuation.separator.rule.pd2filter'
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
 const integerScope = 'constant.numeric.integer.pd2filter'
+const valueConditionScope = 'support.function.condition-value.pd2filter'
 
 it.each(['>', '<', '=', '>=', '<=', '!=', '=='])(
 	'scopes the %s operator',
@@ -15,7 +16,7 @@ it.each(['>', '<', '=', '>=', '<=', '!=', '=='])(
 		await expectScopes(`ItemDisplay[CLVL${operator}30]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
-			{ text: 'CLVL', scope: itemDisplayScope },
+			{ text: 'CLVL', scope: valueConditionScope },
 			{ text: operator, scope: comparisonOperatorScope },
 			{ text: '30', scope: integerScope },
 			{ text: ']', scope: bracketScope },
@@ -29,7 +30,7 @@ it('scopes the BETWEEN range operator', async () => {
 	await expectScopes('ItemDisplay[SOCKETS~1-2]: %NAME%', [
 		{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 		{ text: '[', scope: bracketScope },
-		{ text: 'SOCKETS', scope: itemDisplayScope },
+		{ text: 'SOCKETS', scope: valueConditionScope },
 		{ text: '~', scope: comparisonOperatorScope },
 		{ text: '1', scope: integerScope },
 		{ text: '-', scope: itemDisplayScope },

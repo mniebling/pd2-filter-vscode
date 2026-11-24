@@ -73,39 +73,41 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 ### 5. Test and package workflow
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
-- Tests are organized by flat, feature-focused files, including `item-display-structure.test.ts`, `item-display-boolean.test.ts`, `item-display-comparison.test.ts`, and `item-display-values.test.ts` under `test/`.
+- Tests are organized by flat, feature-focused files, including `item-display-structure.test.ts`, `item-display-boolean.test.ts`, `item-display-comparison.test.ts`, `item-display-values.test.ts`, and `item-display-identifiers.test.ts` under `test/`.
 - `examples/basic-structure.filter` demonstrates supported structure.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
 - `npm run package` creates a versioned VSIX for Extension Development Host or reinstall testing.
 
+### 6. Condition-value research
+
+The Item Filtering wiki's ordinary condition examples and code ranges document unsigned integer values. Decimal and signed literals appear only in the separate formula grammar, so they were not added to ordinary value conditions. Research was recorded on 2026-11-24.
+
+### 7. Initial condition identifiers
+
+Inside `ItemDisplay[...]` only, the following verified value-condition codes are highlighted separately from arbitrary identifiers:
+
+- `CLVL`
+- `GOLD`
+- `ILVL`
+- `RUNE`
+- `SOCKETS`
+
+Tests cover uppercase matching, token boundaries, lowercase text, embedded numeric identifiers, and isolation from Alias replacements. The deliberately small catalog was verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Start with milestone 6 below: verify the wiki's documented decimal and signed-value forms before implementing either. Do not guess from JavaScript or formula syntax. If neither is supported for ordinary value conditions, record that finding and move to milestone 7 instead.
+Continue milestone 7 by deciding whether to extend this verified-condition-code set in another small group before moving to ItemDisplay output. Broader identifiers should remain plain until added to structured, source-dated data.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
 ## Next slices
 
-### 6. Condition values
+### 7b. Extend condition identifiers
 
-Continue condition-value work in small, independently tested steps:
+Add another small, independently tested set of wiki-verified PD2 condition codes only after confirming aliases and item-code boundaries. Do not introduce a broad catalog until contextual matching is stable.
 
-1. Research and, if confirmed, add supported decimal forms.
-2. Research and, if confirmed, add supported signed forms.
-3. Consider a more specific range scope only if later grammar needs it; the documented `~` operator and integer bounds already highlight as composed tokens.
-
-Do not tokenize digits that are part of identifiers, aliases, or item codes.
-
-### 7. Condition identifiers
-
-Once value syntax is stable, add a minimal set of verified PD2 condition codes before broad catalogs:
-
-- distinguish code from an arbitrary identifier;
-- preserve item-code and alias boundaries;
-- keep the grammar contextual and conservative.
-
-Only after this behavior is stable should structured condition-code data be introduced.
+### 8. ItemDisplay output
 
 ### 8. ItemDisplay output
 

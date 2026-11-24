@@ -28,8 +28,14 @@ ItemDisplay[ORACLE DAMAGING_POTIONS]: %NAME%
 ItemDisplay[TRUE]: %NAME%
 ItemDisplay[FALSE]:
 
-// Standalone unsigned integers are highlighted
-ItemDisplay[CLVL>=30 AND SOCK=0]: %NAME%
+// Recognized condition names are highlighted
+ItemDisplay[CLVL>=30 AND SOCKETS=0]: %NAME%
+
+// Recognized condition names also work with other comparisons
+ItemDisplay[GOLD<100 OR RUNE>19 OR ILVL>=85]: %NAME%
+
+// Numbers used as condition values are highlighted
+ItemDisplay[CLVL>=30]: %NAME%
 
 // Digits within identifiers stay plain
 ItemDisplay[ITEM2 SKILL30 2POTIONS]: %NAME%
@@ -42,7 +48,6 @@ Alias[]: replacement
 // Inline comments remain comments
 ItemDisplay[MAG]: %NAME% // keep visible
 Alias[VISIBLE_POTIONS]: (hp1 OR mp1) // useful at low levels
-// Hide utility potions at level 30
 
 // Partial keyword matches stay plain text
 NotItemDisplay[MAG]: %NAME%

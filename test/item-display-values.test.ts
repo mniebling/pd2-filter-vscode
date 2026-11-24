@@ -9,6 +9,7 @@ const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
 const arithmeticOperatorScope = 'keyword.operator.arithmetic.pd2filter'
 const integerScope = 'constant.numeric.integer.pd2filter'
 const booleanScope = 'constant.language.boolean.pd2filter'
+const valueConditionScope = 'support.function.condition-value.pd2filter'
 
 describe('arithmetic syntax', () => {
 	it('scopes addition inside ItemDisplay conditions', async () => {
@@ -98,7 +99,7 @@ describe('integer values', () => {
 		await expectScopes(`ItemDisplay[CLVL>${integer}]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
-			{ text: 'CLVL', scope: itemDisplayScope },
+			{ text: 'CLVL', scope: valueConditionScope },
 			{ text: '>', scope: comparisonOperatorScope },
 			{ text: integer, scope: integerScope },
 			{ text: ']', scope: bracketScope },

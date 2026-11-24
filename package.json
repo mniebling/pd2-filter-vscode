@@ -2,7 +2,7 @@
 	"name": "pd2-filter",
 	"displayName": "Project Diablo 2 Filter",
 	"description": "Syntax highlighting for Project Diablo 2 loot filters.",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"publisher": "bling",
 	"repository": {
 		"type": "git",
