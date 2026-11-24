@@ -4,6 +4,10 @@
 	"description": "Syntax highlighting for Project Diablo 2 loot filters.",
 	"version": "0.0.1",
 	"publisher": "bling",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mniebling/pd2-filter-vscode.git"
+	},
 	"license": "MIT",
 	"type": "module",
 	"engines": {
