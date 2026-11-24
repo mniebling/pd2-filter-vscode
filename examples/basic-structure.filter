@@ -2,13 +2,17 @@
 ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%
 ItemDisplay[]: %NAME%
 
+// Alias wrapper examples
+Alias[UTILITY_POTIONS]: (yps OR wms OR vps)
+Alias[]: replacement
+
 // Inline comments remain comments
 ItemDisplay[MAG]: %NAME% // keep visible
+Alias[VISIBLE_POTIONS]: (hp1 OR mp1) // useful at low levels
 // Hide utility potions at level 30
 
 // Partial keyword matches remain plain text
 NotItemDisplay[MAG]: %NAME%
 ItemDisplay-ish[MAG]: %NAME%
-
-// Other rule types are intentionally unstyled for this slice
-Alias[UTILITY_POTIONS]: (yps OR wms OR vps)
+NotAlias[UTILITY]: replacement
+Alias-like[UTILITY]: replacement

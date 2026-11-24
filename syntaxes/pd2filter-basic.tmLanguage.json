@@ -7,6 +7,9 @@
 			"include": "#item-display-rule"
 		},
 		{
+			"include": "#alias-rule"
+		},
+		{
 			"include": "#line-comment"
 		}
 	],
@@ -17,6 +20,32 @@
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.control.item-display.pd2filter"
+				},
+				"2": {
+					"name": "punctuation.section.brackets.pd2filter"
+				}
+			},
+			"end": "(\\])(?=\\s*:)(\\s*)(:)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.brackets.pd2filter"
+				},
+				"3": {
+					"name": "punctuation.separator.rule.pd2filter"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#line-comment"
+				}
+			]
+		},
+		"alias-rule": {
+			"name": "meta.rule.alias.pd2filter",
+			"begin": "^\\s*(Alias)(\\[)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.alias.pd2filter"
 				},
 				"2": {
 					"name": "punctuation.section.brackets.pd2filter"
