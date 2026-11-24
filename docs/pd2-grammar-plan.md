@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Continue milestone 8 with another small verified output slice. Add the remaining base/equipment value references or begin a focused color-keyword group; keep literal output text plain and do not combine unrelated output features.
+Continue milestone 8 with a focused color-keyword group; keep literal output text plain and do not combine unrelated output features.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -111,6 +111,9 @@ Output references are highlighted inside `ItemDisplay` output only:
 - `%QTY%`, `%RANGE%`, `%SOCKETS%`, `%MAXSOCKETS%`, `%WPNSPD%`
 - `%PRICE%`, `%SELLPRICE%`, `%BUYPRICE%`
 - `%RUNENUM%`, `%RUNENAME%`, `%GEMLEVEL%`, `%GEMTYPE%`, `%CODE%`
+- base damage references: `%BASEMINONEH%`, `%BASEMAXONEH%`, `%BASEMINTWOH%`, `%BASEMAXTWOH%`, `%BASEMINTHROW%`, `%BASEMAXTHROW%`, `%BASEMINKICK%`, `%BASEMAXKICK%`, `%BASEMINSMITE%`, `%BASEMAXSMITE%`
+- requirements/upgrades: `%REQDEX%`, `%REQSTR%`, `%REQLVL%`, `%UPDEX%`, `%UPSTR%`, `%UPLVL%`
+- base properties: `%MAXRES%`, `%ALLATTRIB%`, `%BASEBLOCK%`, `%HEIGHT%`, `%WIDTH%`, `%AREA%`
 
 Literal output remains plain, and unsupported or malformed percent references retain output text scopes. These references were verified against the Item Filtering wiki on 2026-11-24.
 

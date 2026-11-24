@@ -58,6 +58,18 @@ ItemDisplay[]: Alternate sell price: %SELLPRICE%
 ItemDisplay[]: %RUNENAME% #%RUNENUM% / %GEMTYPE% %GEMLEVEL%
 ItemDisplay[]: %SOCKETS% of %MAXSOCKETS% sockets, speed %WPNSPD%
 
+// Base weapon damage
+ItemDisplay[]: 1H %BASEMINONEH%-%BASEMAXONEH%, 2H %BASEMINTWOH%-%BASEMAXTWOH%
+ItemDisplay[]: Throw %BASEMINTHROW%-%BASEMAXTHROW%, kick %BASEMINKICK%-%BASEMAXKICK%
+ItemDisplay[]: Smite %BASEMINSMITE%-%BASEMAXSMITE%, block %BASEBLOCK%
+
+// Requirements and upgraded requirements
+ItemDisplay[]: Requires %REQSTR% Str, %REQDEX% Dex, level %REQLVL%
+ItemDisplay[]: Upgraded requires %UPSTR% Str, %UPDEX% Dex, level %UPLVL%
+
+// Size and base attributes
+ItemDisplay[]: %WIDTH%x%HEIGHT% (area %AREA%), max res %MAXRES%, attributes %ALLATTRIB%
+
 // Literal output stays plain
 ItemDisplay[]: Perfect find!
 
