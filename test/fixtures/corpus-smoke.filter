@@ -1,0 +1,12 @@
+// Representative PD2 filter corpus for grammar regression smoke testing.
+ItemDisplayFilterName[]: Smoke Test
+
+Alias[RWBASES]: (NMAG !INF !RW SOCK=0)
+Alias[SOCKETCOUNT]: %WHITE% [%GRAY%%SOCKETS%%WHITE%]
+Formula[RES_TOTAL]: FRES+CRES+LRES+PRES
+
+ItemDisplay[FILTLVL>1 RWBASES]: %NAME% Socket Me
+ItemDisplay[NMAG SOCK>0]: %NAME%%SOCKETCOUNT%%CONTINUE%
+ItemDisplay[RUNE>9]: %ORANGE% %NAME%%TIER-12%%MAP-9B%%SOUNDID-4714%
+ItemDisplay[FORMULA_RES_TOTAL>79]: %NAME%{Resist total: %FORMULA_RES_TOTAL%}
+ItemDisplay[]: %NAME%

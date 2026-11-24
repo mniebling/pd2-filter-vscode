@@ -75,7 +75,7 @@ Digits embedded in identifiers remain plain, and range bounds retain ordinary in
 
 - Scope expectations use the shared `expectScopes` helper in `test/tokenize.ts`.
 - Tests are organized by flat, feature-focused files.
-- `examples/basic-structure.filter` demonstrates supported structure.
+- `examples/supported-syntax.filter` demonstrates supported syntax.
 - Workspace settings associate this project's `.filter` files with `pd2filter-basic`.
 - `npm run check` validates lint, types, and scope tests.
 - `npm run package` creates a versioned VSIX for Extension Development Host or reinstall testing.
@@ -132,11 +132,19 @@ Literal output remains plain, and unsupported or malformed percent references re
 - Bare formula references are recognized inside ItemDisplay conditions. Input references require uppercase `F`; the remaining letters are case-insensitive. Percent-wrapped references remain output-only.
 - Alias and formula expansion semantics remain outside the highlighter.
 
+## Completed corpus milestone
+
+### 10. Alias research and whole-file smoke coverage
+
+Aliases are simple find-and-replace directives and may be defined anywhere in a filter. Bare condition aliases cannot be distinguished from arbitrary item or condition identifiers without whole-file symbol tracking, while `%ALIAS%` output uses cannot be distinguished from `%KEYWORD%` references by local syntax alone. Alias names and replacements therefore remain contextual rule text; no alias-reference scope is assigned.
+
+A bounded synthetic corpus fixture exercises a full file containing aliases, formulas, descriptions, output aliases, `%CONTINUE%`, notifications, and final fallback rules. The smoke test verifies grammar state and representative scopes without replacing focused inline scope tests. Alias behavior was verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Research alias-reference syntax and decide whether alias uses can be distinguished from arbitrary condition identifiers and literal output. If a reliable, contextual distinction exists, implement one small slice with boundary and false-positive tests. Otherwise record the limitation and move to the catalog strategy or a whole-file corpus smoke test.
+Start the catalog strategy with one small, verified condition catalog slice, or add a bounded smoke corpus sourced from copied public filter text after confirming its licensing and attribution requirements.
 
-After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
+After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
 ## Catalog strategy
 

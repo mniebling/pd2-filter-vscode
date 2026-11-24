@@ -5,7 +5,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadWASM, OnigScanner, OnigString } from 'vscode-oniguruma'
 import { parseRawGrammar, Registry } from 'vscode-textmate'
-import type { IRawGrammar } from 'vscode-textmate'
+import type { IRawGrammar, StateStack } from 'vscode-textmate'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -41,6 +41,23 @@ export async function tokenizeLine(line: string) {
 		text: line.slice(token.startIndex, token.endIndex),
 		scopes: token.scopes,
 	}))
+}
+
+export async function tokenizeFile(contents: string) {
+	registryPromise ??= createRegistry()
+	const registry = await registryPromise
+	const grammar = await registry.loadGrammar(scopeName)
+	if (!grammar) throw new Error(`Failed to load grammar ${scopeName}`)
+
+	let ruleStack: StateStack | null = null
+	return contents.split('\n').map((line) => {
+		const result = grammar.tokenizeLine(line, ruleStack)
+		ruleStack = result.ruleStack
+		return result.tokens.map((token) => ({
+			text: line.slice(token.startIndex, token.endIndex),
+			scopes: token.scopes,
+		}))
+	})
 }
 
 export interface ExpectedToken {
