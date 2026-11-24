@@ -96,7 +96,7 @@ Tests cover uppercase matching, token boundaries, lowercase text, embedded numer
 
 ## Handoff: current next action
 
-Start milestone 8 with a small, verified ItemDisplay output slice. Begin with `%NAME%` and other direct value references, or separate a focused color-keyword slice; keep literal output text plain and do not combine unrelated output features.
+Continue milestone 8 with another small verified output slice. Expand direct value references or add a focused color-keyword group; keep literal output text plain and do not combine unrelated output features.
 
 After each slice, update the completed-milestone summary and keep `examples/basic-structure.filter` aligned with implemented behavior.
 
@@ -104,9 +104,11 @@ After each slice, update the completed-milestone summary and keep `examples/basi
 
 ### 8. ItemDisplay output
 
-Recognize output syntax in separate slices:
+The first output slice highlights `%NAME%` and `%SOCKETS%` inside `ItemDisplay` output only. Literal output remains plain, and unsupported or malformed percent references retain output text scopes. `%NAME%` and `%SOCKETS%` were verified against the Item Filtering wiki on 2026-11-24.
 
-- `%NAME%` and other verified value references;
+Continue output syntax in separate slices:
+
+- additional verified value references;
 - colors;
 - notification/action keywords;
 - `%CONTINUE%`, `%NL%`, and `%CL%`;

@@ -43,6 +43,12 @@ ItemDisplay[CLVL>=30]: %NAME%
 // Digits within identifiers stay plain
 ItemDisplay[ITEM2 SKILL30 2POTIONS]: %NAME%
 
+// Item names and socket counts in output
+ItemDisplay[]: %NAME% [%SOCKETS%]
+
+// Literal output stays plain
+ItemDisplay[]: Perfect find!
+
 // Alias wrapper examples
 Alias[UTILITY_POTIONS]: (yps OR wms OR vps)
 Alias[COMMON_POTIONS]: (hp1 OR mp1) // comment after replacement

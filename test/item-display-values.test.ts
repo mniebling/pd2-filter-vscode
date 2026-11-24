@@ -5,6 +5,10 @@ const itemDisplayScope = 'meta.rule.item-display.pd2filter'
 const itemDisplayKeywordScope = 'keyword.control.item-display.pd2filter'
 const bracketScope = 'punctuation.section.brackets.pd2filter'
 const colonScope = 'punctuation.separator.rule.pd2filter'
+const nameOutput = [
+	{ text: ' ', scope: 'meta.output.item-display.pd2filter' },
+	{ text: '%NAME%', scope: 'constant.other.value-reference.pd2filter' },
+]
 const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
 const arithmeticOperatorScope = 'keyword.operator.arithmetic.pd2filter'
 const integerScope = 'constant.numeric.integer.pd2filter'
@@ -27,7 +31,7 @@ describe('arithmetic syntax', () => {
 			{ text: '79', scope: integerScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME%' },
+			...nameOutput,
 		])
 	})
 
@@ -49,7 +53,9 @@ describe('arithmetic syntax', () => {
 			{ text: 'RARE', scope: itemDisplayScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' +%NAME%+' },
+			{ text: ' +', scope: 'meta.output.item-display.pd2filter' },
+			{ text: '%NAME%', scope: 'constant.other.value-reference.pd2filter' },
+			{ text: '+', scope: 'meta.output.item-display.pd2filter' },
 		])
 	})
 })
@@ -62,7 +68,7 @@ describe('boolean values', () => {
 			{ text: value, scope: booleanScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME%' },
+			...nameOutput,
 		])
 	})
 
@@ -78,7 +84,7 @@ describe('boolean values', () => {
 			{ text: value, scope: itemDisplayScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME%' },
+			...nameOutput,
 		])
 	})
 
@@ -104,7 +110,7 @@ describe('integer values', () => {
 			{ text: integer, scope: integerScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME%' },
+			...nameOutput,
 		])
 	})
 
@@ -115,7 +121,7 @@ describe('integer values', () => {
 			{ text: identifier, scope: itemDisplayScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME%' },
+			...nameOutput,
 		])
 	})
 

@@ -5,6 +5,10 @@ const itemDisplayScope = 'meta.rule.item-display.pd2filter'
 const itemDisplayKeywordScope = 'keyword.control.item-display.pd2filter'
 const bracketScope = 'punctuation.section.brackets.pd2filter'
 const colonScope = 'punctuation.separator.rule.pd2filter'
+const nameOutput = [
+	{ text: ' ', scope: 'meta.output.item-display.pd2filter' },
+	{ text: '%NAME%', scope: 'constant.other.value-reference.pd2filter' },
+]
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
 
@@ -17,7 +21,7 @@ it.each(['AND', 'OR'])('scopes the %s operator', async (operator) => {
 		{ text: ' RARE', scope: itemDisplayScope },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
-		{ text: ' %NAME%' },
+		...nameOutput,
 	])
 })
 
@@ -29,7 +33,7 @@ it('scopes logical negation', async () => {
 		{ text: 'ID', scope: itemDisplayScope },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
-		{ text: ' %NAME%' },
+		...nameOutput,
 	])
 })
 
@@ -51,7 +55,7 @@ it.each(['(', ')'])('scopes the %s grouping parenthesis', async (paren) => {
 		...expectedCondition,
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
-		{ text: ' %NAME%' },
+		...nameOutput,
 	])
 })
 
@@ -62,7 +66,7 @@ it('requires token boundaries around boolean keywords', async () => {
 		{ text: 'ORACLE DAMAGING_POTIONS', scope: itemDisplayScope },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
-		{ text: ' %NAME%' },
+		...nameOutput,
 	])
 })
 

@@ -54,13 +54,21 @@
 					"name": "punctuation.section.brackets.pd2filter"
 				}
 			},
-			"end": "(\\])(?=\\s*:)(\\s*)(:)",
+			"end": "(\\])(?=\\s*:)(\\s*)(:)(.*)$",
 			"endCaptures": {
 				"1": {
 					"name": "punctuation.section.brackets.pd2filter"
 				},
 				"3": {
 					"name": "punctuation.separator.rule.pd2filter"
+				},
+				"4": {
+					"name": "meta.output.item-display.pd2filter",
+					"patterns": [
+						{
+							"include": "#item-display-output"
+						}
+					]
 				}
 			},
 			"patterns": [
@@ -91,6 +99,18 @@
 				{
 					"name": "punctuation.section.parens.pd2filter",
 					"match": "[()]"
+				},
+				{
+					"include": "#line-comment"
+				}
+			]
+		},
+		"item-display-output": {
+			"name": "meta.output.item-display.pd2filter",
+			"patterns": [
+				{
+					"name": "constant.other.value-reference.pd2filter",
+					"match": "%(?:NAME|SOCKETS)%"
 				},
 				{
 					"include": "#line-comment"

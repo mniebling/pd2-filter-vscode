@@ -21,7 +21,9 @@ describe('comments', () => {
 			{ text: 'MAG', scope: 'meta.rule.item-display.pd2filter' },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' %NAME% ' },
+			{ text: ' ', scope: 'meta.output.item-display.pd2filter' },
+			{ text: '%NAME%', scope: 'constant.other.value-reference.pd2filter' },
+			{ text: ' ', scope: 'meta.output.item-display.pd2filter' },
 			{ text: '// keep visible', scope: commentScope },
 		])
 	})
