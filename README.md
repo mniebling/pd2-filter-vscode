@@ -10,17 +10,17 @@ The initial `0.0.x` grammar intentionally highlights only `//` comments and leav
 2. Press `F5` to launch an Extension Development Host.
 3. Open a `.filter` file and select **PD2 Filter (Basic)** as its language mode.
 
-The extension intentionally does not claim every `.filter` file because that extension is also used by other loot-filter tools. To associate only a PD2 filter in a workspace, add a path-specific association to `.vscode/settings.json`:
+The extension intentionally does not claim every `.filter` file because that extension is also used by other games' loot filters. To associate only PD2 filters in a particular directory, add a path-specific association to `.vscode/settings.json`:
 
 ```json
 {
   "files.associations": {
-    "pd2/*.filter": "pd2filter-basic"
+    "**/pd2/*.filter": "pd2filter-basic"
   }
 }
 ```
 
-Adjust the glob to match your repository layout. VS Code language associations can also be configured per file by selecting **PD2 Filter (Basic)** from the language-mode picker.
+For a single file, select **PD2 Filter (Basic)** from the language-mode picker instead.
 
 ## Scope
 
