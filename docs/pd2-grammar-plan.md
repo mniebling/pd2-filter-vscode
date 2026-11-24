@@ -56,8 +56,10 @@ Inside `ItemDisplay[...]` only:
 - `<=`
 - `!=`
 - `==`
+- `~`
+- `+`
 
-Tests cover longest-match behavior, separated `! =`, every operator, and context isolation outside `ItemDisplay`.
+Tests cover longest-match behavior, separated `! =`, the documented BETWEEN form, arithmetic addition, every operator, and context isolation outside `ItemDisplay`.
 
 ### 4. Numeric condition values and ranges
 

@@ -14,6 +14,10 @@ ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
 // BETWEEN range operator with integer bounds
 ItemDisplay[SOCKETS~1-2]: %NAME%
 
+// Addition between condition values
+ItemDisplay[FRES+CRES+LRES+PRES>79]: %NAME%
+ItemDisplay[STAT60+STAT62>10]: %NAME%
+
 // Complete Boolean keyword
 ItemDisplay[MAG OR RARE]: %NAME%
 

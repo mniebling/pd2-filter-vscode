@@ -9,6 +9,7 @@ const colonScope = 'punctuation.separator.rule.pd2filter'
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
 const comparisonOperatorScope = 'keyword.operator.comparison.pd2filter'
+const arithmeticOperatorScope = 'keyword.operator.arithmetic.pd2filter'
 const integerScope = 'constant.numeric.integer.pd2filter'
 const booleanScope = 'constant.language.boolean.pd2filter'
 
@@ -103,6 +104,49 @@ describe('ItemDisplay', () => {
 				{ text: ']', scope: bracketScope },
 				{ text: ':', scope: colonScope },
 				{ text: ' (MAG OR RARE) !ID' },
+			])
+		})
+	})
+
+	describe('arithmetic syntax', () => {
+		it('scopes addition inside ItemDisplay conditions', async () => {
+			await expectScopes('ItemDisplay[FRES+CRES+LRES+PRES>79]: %NAME%', [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: 'FRES', scope: itemDisplayScope },
+				{ text: '+', scope: arithmeticOperatorScope },
+				{ text: 'CRES', scope: itemDisplayScope },
+				{ text: '+', scope: arithmeticOperatorScope },
+				{ text: 'LRES', scope: itemDisplayScope },
+				{ text: '+', scope: arithmeticOperatorScope },
+				{ text: 'PRES', scope: itemDisplayScope },
+				{ text: '>', scope: comparisonOperatorScope },
+				{ text: '79', scope: integerScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' %NAME%' },
+			])
+		})
+
+		it('does not scope addition in an Alias replacement', async () => {
+			await expectScopes('Alias[RES_TOTAL]: FRES+CRES', [
+				{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
+				{ text: '[', scope: bracketScope },
+				{ text: 'RES_TOTAL', scope: 'meta.rule.alias.pd2filter' },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' FRES+CRES' },
+			])
+		})
+
+		it('does not scope addition in ItemDisplay output', async () => {
+			await expectScopes('ItemDisplay[RARE]: +%NAME%+', [
+				{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+				{ text: '[', scope: bracketScope },
+				{ text: 'RARE', scope: itemDisplayScope },
+				{ text: ']', scope: bracketScope },
+				{ text: ':', scope: colonScope },
+				{ text: ' +%NAME%+' },
 			])
 		})
 	})
