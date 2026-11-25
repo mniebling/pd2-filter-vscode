@@ -16,7 +16,8 @@ it('scopes the rule structure and condition content', async () => {
 	await expectScopes('ItemDisplay[GROUND DAMAGING_POTIONS CLVL>9]: %NAME%', [
 		{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 		{ text: '[', scope: bracketScope },
-		{ text: 'GROUND DAMAGING_POTIONS ', scope: itemDisplayScope },
+		{ text: 'GROUND', scope: 'constant.language.condition-boolean.pd2filter' },
+		{ text: ' DAMAGING_POTIONS ', scope: itemDisplayScope },
 		{ text: 'CLVL', scope: 'support.function.condition-value.pd2filter' },
 		{ text: '>', scope: comparisonOperatorScope },
 		{ text: '9', scope: integerScope },

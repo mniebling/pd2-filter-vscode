@@ -85,7 +85,7 @@
 				},
 				{
 					"name": "constant.language.condition-boolean.pd2filter",
-					"match": "(?<![A-Za-z0-9_])(?:NMAG|MAG|RARE|UNI|SET|CRAFT|NORM|EXC|ELT|ID|INF|SUP|ETH|RW|GEMMED)(?![A-Za-z0-9_])"
+					"match": "(?<![A-Za-z0-9_])(?:NMAG|MAG|RARE|UNI|SET|CRAFT|NORM|EXC|ELT|ID|INF|SUP|ETH|RW|GEMMED|AMAZON|ASSASSIN|BARBARIAN|DRUID|NECROMANCER|PALADIN|SORCERESS|SHOP|EQUIPPED|MERC|INVENTORY|CUBE|STASH|GROUND|ANYDISCOVERED|ALLDISCOVERED|ANYOWNED|ALLOWNED)(?![A-Za-z0-9_])"
 				},
 				{
 					"name": "keyword.operator.arithmetic.pd2filter",

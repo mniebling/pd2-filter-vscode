@@ -150,9 +150,19 @@ Inside `ItemDisplay[...]` only, verified rarity, tier, and item-property Boolean
 
 Tests cover uppercase matching, identifier boundaries, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 12. Mutable Boolean item conditions
+
+The Boolean item-condition list also recognizes verified mutable character, location, and discovery/ownership conditions:
+
+- `AMAZON`, `ASSASSIN`, `BARBARIAN`, `DRUID`, `NECROMANCER`, `PALADIN`, `SORCERESS`
+- `SHOP`, `EQUIPPED`, `MERC`, `INVENTORY`, `CUBE`, `STASH`, `GROUND`
+- `ANYDISCOVERED`, `ALLDISCOVERED`, `ANYOWNED`, `ALLOWNED`
+
+Matching remains uppercase-only, token-bounded, and contextual to `ItemDisplay[...]`. The wiki's documented `ALLOWNED` spelling is retained verbatim. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue the catalog strategy with another small verified group of Boolean item conditions, such as mutable/item-location conditions, then keep evaluating broader item-code groups incrementally.
+Continue with another small verified group of Boolean item conditions, beginning with general item groups and then evaluating broader item-code groups incrementally.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
