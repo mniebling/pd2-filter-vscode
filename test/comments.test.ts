@@ -18,7 +18,7 @@ describe('comments', () => {
 		await expectScopes('ItemDisplay[MAG]: %NAME% // keep visible', [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
-			{ text: 'MAG', scope: 'meta.rule.item-display.pd2filter' },
+			{ text: 'MAG', scope: 'constant.language.condition-boolean.pd2filter' },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' ', scope: 'meta.output.item-display.pd2filter' },

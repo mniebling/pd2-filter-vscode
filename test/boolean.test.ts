@@ -10,15 +10,18 @@ const nameOutput = [
 	{ text: '%NAME%', scope: 'constant.other.value-reference.pd2filter' },
 ]
 const logicalOperatorScope = 'keyword.operator.logical.pd2filter'
+const booleanConditionScope = 'constant.language.condition-boolean.pd2filter'
 const parenScope = 'punctuation.section.parens.pd2filter'
 
 it.each(['AND', 'OR'])('scopes the %s operator', async (operator) => {
 	await expectScopes(`ItemDisplay[MAG ${operator} RARE]: %NAME%`, [
 		{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 		{ text: '[', scope: bracketScope },
-		{ text: 'MAG ', scope: itemDisplayScope },
+		{ text: 'MAG', scope: booleanConditionScope },
+		{ text: ' ', scope: itemDisplayScope },
 		{ text: operator, scope: logicalOperatorScope },
-		{ text: ' RARE', scope: itemDisplayScope },
+		{ text: ' ', scope: itemDisplayScope },
+		{ text: 'RARE', scope: booleanConditionScope },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
 		...nameOutput,
@@ -30,7 +33,7 @@ it('scopes logical negation', async () => {
 		{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 		{ text: '[', scope: bracketScope },
 		{ text: '!', scope: logicalOperatorScope },
-		{ text: 'ID', scope: itemDisplayScope },
+		{ text: 'ID', scope: booleanConditionScope },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
 		...nameOutput,
@@ -42,10 +45,10 @@ it.each(['(', ')'])('scopes the %s grouping parenthesis', async (paren) => {
 	const expectedCondition = paren === '('
 		? [
 			{ text: '(', scope: parenScope },
-			{ text: 'MAG', scope: itemDisplayScope },
+			{ text: 'MAG', scope: booleanConditionScope },
 		]
 		: [
-			{ text: 'MAG', scope: itemDisplayScope },
+			{ text: 'MAG', scope: booleanConditionScope },
 			{ text: ')', scope: parenScope },
 		]
 

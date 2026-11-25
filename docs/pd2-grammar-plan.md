@@ -140,9 +140,19 @@ Aliases are simple find-and-replace directives and may be defined anywhere in a 
 
 A bounded synthetic corpus fixture exercises a full file containing aliases, formulas, descriptions, output aliases, `%CONTINUE%`, notifications, and final fallback rules. The smoke test verifies grammar state and representative scopes without replacing focused inline scope tests. Alias behavior was verified against the Item Filtering wiki on 2026-11-24.
 
+### 11. Initial Boolean item conditions
+
+Inside `ItemDisplay[...]` only, verified rarity, tier, and item-property Boolean conditions are highlighted separately from arbitrary identifiers:
+
+- `NMAG`, `MAG`, `RARE`, `UNI`, `SET`, `CRAFT`
+- `NORM`, `EXC`, `ELT`
+- `ID`, `INF`, `SUP`, `ETH`, `RW`, `GEMMED`
+
+Tests cover uppercase matching, identifier boundaries, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Start the catalog strategy with one small, verified condition catalog slice, or add a bounded smoke corpus sourced from copied public filter text after confirming its licensing and attribution requirements.
+Continue the catalog strategy with another small verified group of Boolean item conditions, such as mutable/item-location conditions, then keep evaluating broader item-code groups incrementally.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

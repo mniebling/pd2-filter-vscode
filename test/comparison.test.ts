@@ -52,7 +52,7 @@ it('does not combine separated comparison characters', async () => {
 		{ text: '!', scope: logicalOperatorScope },
 		{ text: ' ', scope: itemDisplayScope },
 		{ text: '=', scope: comparisonOperatorScope },
-		{ text: 'MAG', scope: itemDisplayScope },
+		{ text: 'MAG', scope: 'constant.language.condition-boolean.pd2filter' },
 		{ text: ']', scope: bracketScope },
 		{ text: ':', scope: colonScope },
 		...nameOutput,

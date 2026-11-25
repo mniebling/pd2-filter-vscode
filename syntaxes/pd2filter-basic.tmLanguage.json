@@ -84,6 +84,10 @@
 					"match": "\\b(?:ALVL|CLVL|CRAFTALVL|DIFF|FILTLVL|GEMLEVEL|GEMTYPE|GEM|GOLD|ILVL|LVLREQ|MAPID|MAPTIER|PRICE|QLVL|QTY|REROLLALVL|RUNE|SOCKETS)\\b"
 				},
 				{
+					"name": "constant.language.condition-boolean.pd2filter",
+					"match": "(?<![A-Za-z0-9_])(?:NMAG|MAG|RARE|UNI|SET|CRAFT|NORM|EXC|ELT|ID|INF|SUP|ETH|RW|GEMMED)(?![A-Za-z0-9_])"
+				},
+				{
 					"name": "keyword.operator.arithmetic.pd2filter",
 					"match": "\\+"
 				},

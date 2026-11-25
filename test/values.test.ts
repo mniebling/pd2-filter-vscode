@@ -50,7 +50,7 @@ describe('arithmetic syntax', () => {
 		await expectScopes('ItemDisplay[RARE]: +%NAME%+', [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
-			{ text: 'RARE', scope: itemDisplayScope },
+			{ text: 'RARE', scope: 'constant.language.condition-boolean.pd2filter' },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' +', scope: 'meta.output.item-display.pd2filter' },
