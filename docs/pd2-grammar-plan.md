@@ -248,9 +248,19 @@ Inside `ItemDisplay[...]`, `STAT` and `CHARSTAT` followed by one or more decimal
 
 The wiki's numbered IDs are sparse and season-sensitive, so the grammar recognizes their syntax without validating whether a particular numeric ID currently exists. Tests cover representative documented IDs, arbitrary numeric forms, lowercase text, malformed suffixes, and context isolation. This form was verified against the Item Filtering wiki on 2026-11-24.
 
+### 23. Multi-layered and skill value-condition syntax
+
+Inside `ItemDisplay[...]`, the following patterned forms are highlighted as value conditions without validating semantic IDs:
+
+- `MULTI<number>,<number>`
+- `CLSK<number>`, `OS<number>`, `SK<number>`, `TABSK<number>`
+- `ALLSK`
+
+The complete `MULTI` parameter form receives the value-condition scope, including its comma and layer number. Tests cover representative wiki examples, arbitrary numeric IDs, lowercase text, malformed forms, longer identifiers, and context isolation. These forms were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Evaluate patterned multi-layered and skill codes, beginning with their parameter syntax and avoiding semantic ID validation.
+Continue with remaining upper-case value-condition syntax, beginning with special ID forms such as prefixes and numeric ranges, then review output-reference coverage.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

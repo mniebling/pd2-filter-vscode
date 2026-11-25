@@ -27,6 +27,10 @@ ItemDisplay[MFIND+GFIND+MAEK+DTM+REPAIR+ARPER>0]: %NAME%
 ItemDisplay[STAT60+STAT62>10]: %NAME%
 ItemDisplay[CHARSTAT14+CHARSTAT15>1000]: %NAME%
 
+// Multi-layered and skill value-condition syntax
+ItemDisplay[MULTI83,2=2 OR MULTI97,74>19]: %NAME%
+ItemDisplay[CLSK2=2 OR OS74=20 OR SK20=3 OR TABSK25>4 OR ALLSK>0]: %NAME%
+
 // Boolean item conditions: rarity, tier, and item properties
 ItemDisplay[(NMAG OR MAG OR RARE OR UNI OR SET OR CRAFT)]: %NAME%
 ItemDisplay[(NORM OR EXC OR ELT) AND (ID OR INF OR SUP OR ETH OR RW OR GEMMED OR FOOLS)]: %NAME%
