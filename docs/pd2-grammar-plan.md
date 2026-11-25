@@ -191,9 +191,19 @@ The Boolean item-condition list recognizes the verified weapon group aliases, ag
 
 Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 16. Class-restricted item groups
+
+The Boolean item-condition list recognizes the verified class-restricted item group aliases and aggregate:
+
+- `CL1`/`DRU`, `CL2`/`BAR`, `CL3`/`DIN`, `CL4`/`NEC`
+- `CL5`/`SIN`, `CL6`/`SOR`, `CL7`/`ZON`
+- `CLASS`
+
+Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with the class-restricted item groups, then evaluate broader item-code groups incrementally.
+Evaluate the broader item-code groups incrementally, beginning with a small, verified item-code category.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
