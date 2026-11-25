@@ -201,81 +201,17 @@ The Boolean item-condition list recognizes the verified class-restricted item gr
 
 Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
-### 17. Quiver item codes
+### 17. Lowercase item-code policy
 
-The Boolean item-condition list recognizes the verified arrow and bolt item codes:
+Lowercase item codes are intentionally not cataloged or validated by the highlighter. They remain plain condition text, including runes, gems, armor and weapon bases, quest items, maps, and PD2-specific items.
 
-- `aqv`, `aqv2`, `aqv3`
-- `cqv`, `cqv2`, `cqv3`
+This avoids a large, season-sensitive catalog that cannot be distinguished reliably from arbitrary aliases or custom identifiers using local syntax. Scope tests assert that representative lowercase item codes remain plain. Users should verify item-code validity against current PD2 documentation rather than infer it from highlighting.
 
-Unlike the uppercase group aliases, these item codes are matched lowercase-only. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 18. Miscellaneous gear item codes
-
-The Boolean item-condition list recognizes the verified miscellaneous gear codes:
-
-- `tsc`, `isc`, `tbk`, `ibk`, `key`, `leg`, `ear`, `std`
-- `cm1`, `cm2`, `cm3`, `cm1p`, `cm2p`, `cm3p`
-- `jew`, `rin`, `amu`
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 19. Gem item codes
-
-The Boolean item-condition list recognizes the complete verified gem code matrix, including the second codes for stacked flawless and perfect gems:
-
-- Amethyst, Topaz, Sapphire, Emerald, Ruby, and Diamond codes from chipped through perfect
-- Skull codes `skc`, `skf`, `sku`, `skl`/`skls`, `skz`/`skzs`
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 20. Rune item codes
-
-The Boolean item-condition list recognizes all verified rune codes and their stacked variants:
-
-- `r01` through `r33`
-- `r01s` through `r33s`
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid rune ranges, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 21. Potion item codes
-
-The Boolean item-condition list recognizes the verified potion codes:
-
-- rejuvenation, utility, healing, and mana potions
-- current throwing potions (`tpfs` through `tpll` as documented)
-- legacy throwing-potion codes (`opl` through `gps` as documented)
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid numeric tiers, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 22. Quest item codes
-
-The Boolean item-condition list recognizes all verified quest codes, including quest equipment:
-
-- `bks`, `bkd`, `tr1`, `ass`, `box`, `j34`, `g34`, `xyz`, `bbb`, `qbr`, `qey`, `qhr`, `mss`, `ice`, `tr2`
-- `hdm`, `msf`, `vip`, `hst`, `g33`, `qf1`, `qf2`, `hfh`
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
-
-### 23. PD2-specific item codes
-
-The Boolean item-condition list recognizes the current verified PD2-specific item codes:
-
-- map codes from `t11` through `t62`, including `t3a` and the documented gaps
-- map-crafting orb codes from `imma` through `iwss`
-- Worldstone, Larzuk, map navigation, jewel-fragment, and rare-utility item codes
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, unsupported map codes, longer identifiers, and isolation from Alias replacements. This season-sensitive catalog was refreshed against the Item Filtering wiki on 2026-11-24.
-
-### 24. Corrupted hero ear item codes
-
-The Boolean item-condition list recognizes the verified corrupted hero ear codes `ivea`, `ivez`, `iveb`, `ived`, `iven`, `ivep`, and `ives`.
-
-These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+Uppercase Boolean group aliases remain highlighted because they are stable syntax-level keywords rather than individual item codes.
 
 ## Handoff: current next action
 
-Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
+Continue with verified uppercase syntax slices and avoid cataloging individual lowercase item codes.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
