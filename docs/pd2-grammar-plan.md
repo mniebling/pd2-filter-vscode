@@ -229,6 +229,15 @@ The Boolean item-condition list recognizes the complete verified gem code matrix
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 20. Rune item codes
+
+The Boolean item-condition list recognizes all verified rune codes and their stacked variants:
+
+- `r01` through `r33`
+- `r01s` through `r33s`
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid rune ranges, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.

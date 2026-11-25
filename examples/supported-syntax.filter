@@ -39,6 +39,8 @@ ItemDisplay[gcg OR gfg OR gsg OR glg OR glgs OR gpg OR gpgs]: %NAME%
 ItemDisplay[gcr OR gfr OR gsr OR glr OR glrs OR gpr OR gprs]: %NAME%
 ItemDisplay[gcw OR gfw OR gsw OR glw OR glws OR gpw OR gpws]: %NAME%
 ItemDisplay[skc OR skf OR sku OR skl OR skls OR skz OR skzs]: %NAME%
+ItemDisplay[r01 OR r11 OR r22 OR r33]: %NAME%
+ItemDisplay[r01s OR r11s OR r22s OR r33s]: %NAME%
 ItemDisplay[(AMAZON OR ASSASSIN OR BARBARIAN OR DRUID OR NECROMANCER OR PALADIN OR SORCERESS) AND GROUND]: %NAME%
 ItemDisplay[SHOP OR EQUIPPED OR MERC OR INVENTORY OR CUBE OR STASH]: %NAME%
 ItemDisplay[ANYDISCOVERED OR ALLDISCOVERED OR ANYOWNED OR ALLOWNED]: %NAME%
