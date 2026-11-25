@@ -201,9 +201,18 @@ The Boolean item-condition list recognizes the verified class-restricted item gr
 
 Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 17. Quiver item codes
+
+The Boolean item-condition list recognizes the verified arrow and bolt item codes:
+
+- `aqv`, `aqv2`, `aqv3`
+- `cqv`, `cqv2`, `cqv3`
+
+Unlike the uppercase group aliases, these item codes are matched lowercase-only. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Evaluate the broader item-code groups incrementally, beginning with a small, verified item-code category.
+Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
