@@ -238,6 +238,16 @@ The Boolean item-condition list recognizes all verified rune codes and their sta
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid rune ranges, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 21. Potion item codes
+
+The Boolean item-condition list recognizes the verified potion codes:
+
+- rejuvenation, utility, healing, and mana potions
+- current throwing potions (`tpfs` through `tpll` as documented)
+- legacy throwing-potion codes (`opl` through `gps` as documented)
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid numeric tiers, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
