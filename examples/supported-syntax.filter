@@ -66,8 +66,9 @@ ItemDisplay[FALSE]:
 // Common character and item levels
 ItemDisplay[CLVL>=30 AND ILVL>=85]: %NAME%
 
-// Item details and filter settings
+// Item details, filter settings, and affix ID conditions
 ItemDisplay[SOCKETS=0 OR GEMLEVEL>3 OR FILTLVL>1]: %NAME%
+ItemDisplay[PREFIX~1279-1353 OR SUFFIX=1 OR AUTOMOD>0]: %NAME%
 
 // Gold, runes, and prices
 ItemDisplay[GOLD<100 OR RUNE>19 OR PRICE>100000]: %NAME%

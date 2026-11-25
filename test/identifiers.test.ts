@@ -19,6 +19,7 @@ describe('condition identifiers', () => {
 		'ALVL',
 		'AR',
 		'ARPER',
+		'AUTOMOD',
 		'CLVL',
 		'CRAFTALVL',
 		'CRES',
@@ -53,6 +54,7 @@ describe('condition identifiers', () => {
 		'MAXDUR',
 		'MFIND',
 		'MINDMG',
+		'PREFIX',
 		'PRES',
 		'PRICE',
 		'QLVL',
@@ -65,6 +67,7 @@ describe('condition identifiers', () => {
 		'SOCK',
 		'SOCKETS',
 		'STR',
+		'SUFFIX',
 	])('scopes the verified value condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -91,7 +94,7 @@ describe('condition identifiers', () => {
 		])
 	})
 
-	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur', 'mfind', 'gfind', 'dtm', 'repair', 'stat60', 'charstat15', 'clsk2', 'allsk'])('does not scope lowercase identifier %s', async (identifier) => {
+	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur', 'mfind', 'gfind', 'dtm', 'repair', 'prefix', 'suffix', 'automod', 'stat60', 'charstat15', 'clsk2', 'allsk'])('does not scope lowercase identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -161,6 +164,9 @@ describe('condition identifiers', () => {
 		'DTMODE',
 		'REPAIRED',
 		'ARPER2',
+		'AUTOMODS',
+		'PREFIXED',
+		'SUFFIXES',
 		'STAT',
 		'STAT_60',
 		'STAT60_EXTRA',

@@ -258,9 +258,15 @@ Inside `ItemDisplay[...]`, the following patterned forms are highlighted as valu
 
 The complete `MULTI` parameter form receives the value-condition scope, including its comma and layer number. Tests cover representative wiki examples, arbitrary numeric IDs, lowercase text, malformed forms, longer identifiers, and context isolation. These forms were verified against the Item Filtering wiki on 2026-11-24.
 
+### 24. Affix ID value conditions
+
+The value-condition list recognizes `PREFIX`, `SUFFIX`, and `AUTOMOD` alongside the existing `MAPID`. Their operands use the existing comparison and `~` range syntax; numeric ranges and whether IDs exist remain semantic concerns rather than highlighting rules.
+
+Tests cover exact matches, lowercase text, longer identifiers, and context isolation. These identifiers were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with remaining upper-case value-condition syntax, beginning with special ID forms such as prefixes and numeric ranges, then review output-reference coverage.
+Review output-reference coverage for the newly added named and patterned value-condition codes, adding only contextual percent-wrapped references supported by the wiki.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
