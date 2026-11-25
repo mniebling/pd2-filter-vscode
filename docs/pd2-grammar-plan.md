@@ -171,9 +171,19 @@ The Boolean item-condition list recognizes the verified miscellaneous item group
 
 Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 14. Armor item groups
+
+The Boolean item-condition list recognizes the verified armor group aliases and aggregate:
+
+- `EQ1`/`HELM`, `EQ2`/`CHEST`, `EQ3`/`SHIELD`
+- `EQ4`/`GLOVES`, `EQ5`/`BOOTS`, `EQ6`/`BELT`, `EQ7`/`CIRC`
+- `ARMOR`
+
+Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with another small verified group of Boolean item conditions, beginning with the armor groups and evaluating weapon and broader item-code groups incrementally.
+Continue with another small verified group of Boolean item conditions, beginning with the weapon groups and evaluating class-restricted and broader item-code groups incrementally.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
