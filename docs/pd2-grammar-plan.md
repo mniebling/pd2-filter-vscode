@@ -264,9 +264,15 @@ The value-condition list recognizes `PREFIX`, `SUFFIX`, and `AUTOMOD` alongside 
 
 Tests cover exact matches, lowercase text, longer identifiers, and context isolation. These identifiers were verified against the Item Filtering wiki on 2026-11-24.
 
+### 25. Attribute and skill output references
+
+ItemDisplay output recognizes percent-wrapped references for all implemented named attributes except `MAXDUR`, as documented by the wiki. It also recognizes patterned `STAT<number>`, `CHARSTAT<number>`, `CLSK<number>`, `OS<number>`, `SK<number>`, `TABSK<number>`, and `ALLSK` output references.
+
+Recognition remains contextual to ItemDisplay output and does not validate numeric IDs. Unsupported forms such as `%MAXDUR%`, `%PREFIX%`, and `%MULTI83,2%` remain plain. These references were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Review output-reference coverage for the newly added named and patterned value-condition codes, adding only contextual percent-wrapped references supported by the wiki.
+Audit the remaining value-output examples and formula interactions, then identify the next narrowly verifiable syntax slice or begin validation cleanup.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

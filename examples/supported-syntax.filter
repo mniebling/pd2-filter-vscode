@@ -90,9 +90,12 @@ ItemDisplay[]: %CRAFTALVL% / %REROLLALVL% / %QTY%
 ItemDisplay[]: %CODE% costs %BUYPRICE% and sells for %PRICE%
 ItemDisplay[]: Alternate sell price: %SELLPRICE%
 
-// Rune, gem, and socket details
+// Rune, gem, socket, attribute, and skill values
 ItemDisplay[]: %RUNENAME% #%RUNENUM% / %GEMTYPE% %GEMLEVEL%
 ItemDisplay[]: %SOCKETS% of %MAXSOCKETS% sockets, speed %WPNSPD%
+ItemDisplay[]: %STR% Str, %DEX% Dex, %LIFE% Life, %MANA% Mana, %RES% Res
+ItemDisplay[]: %FRES%/%CRES%/%LRES%/%PRES%, %MFIND% MF, %GFIND% GF
+ItemDisplay[]: %STAT60% leech, %CLSK2% class skill, %ALLSK% all skills
 
 // Base weapon damage
 ItemDisplay[]: 1H %BASEMINONEH%-%BASEMAXONEH%, 2H %BASEMINTWOH%-%BASEMAXTWOH%
