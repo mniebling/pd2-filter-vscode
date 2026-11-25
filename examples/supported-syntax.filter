@@ -14,8 +14,10 @@ ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
 // BETWEEN range operator with integer bounds
 ItemDisplay[SOCKETS~1-2]: %NAME%
 
-// Addition between condition values
+// Named value-condition shortcuts and addition
+ItemDisplay[STR+DEX+LIFE+MANA>100]: %NAME%
 ItemDisplay[FRES+CRES+LRES+PRES>79]: %NAME%
+ItemDisplay[EDEF+EDAM+FCR+AR+REPLIFE>50]: %NAME%
 ItemDisplay[STAT60+STAT62>10]: %NAME%
 
 // Boolean item conditions: rarity, tier, and item properties

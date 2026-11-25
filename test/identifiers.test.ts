@@ -16,24 +16,37 @@ const valueConditionScope = 'support.function.condition-value.pd2filter'
 describe('condition identifiers', () => {
 	it.each([
 		'ALVL',
+		'AR',
 		'CLVL',
 		'CRAFTALVL',
+		'CRES',
+		'DEX',
 		'DIFF',
+		'EDAM',
+		'EDEF',
 		'FILTLVL',
+		'FCR',
+		'FRES',
 		'GEM',
 		'GEMLEVEL',
 		'GEMTYPE',
 		'GOLD',
 		'ILVL',
+		'LIFE',
+		'LRES',
 		'LVLREQ',
+		'MANA',
 		'MAPID',
 		'MAPTIER',
+		'PRES',
 		'PRICE',
 		'QLVL',
 		'QTY',
+		'REPLIFE',
 		'REROLLALVL',
 		'RUNE',
 		'SOCKETS',
+		'STR',
 	])('scopes the verified value condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -47,7 +60,7 @@ describe('condition identifiers', () => {
 		])
 	})
 
-	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets'])('does not scope lowercase identifier %s', async (identifier) => {
+	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'str', 'fres', 'replife'])('does not scope lowercase identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -75,6 +88,17 @@ describe('condition identifiers', () => {
 		'SOCKETS2',
 		'2SOCKETS',
 		'SOCKETSTONE',
+		'STRENGTH',
+		'DEX2',
+		'LIFETIME',
+		'MANATOTAL',
+		'FRESIST',
+		'CRES2',
+		'EDEFENSE',
+		'EDAMAGE',
+		'FCRATE',
+		'ARMORATING',
+		'REPLIFE2',
 	])('does not scope a longer identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },

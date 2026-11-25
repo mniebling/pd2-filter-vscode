@@ -81,7 +81,7 @@
 				},
 				{
 					"name": "support.function.condition-value.pd2filter",
-					"match": "\\b(?:ALVL|CLVL|CRAFTALVL|DIFF|FILTLVL|GEMLEVEL|GEMTYPE|GEM|GOLD|ILVL|LVLREQ|MAPID|MAPTIER|PRICE|QLVL|QTY|REROLLALVL|RUNE|SOCKETS)\\b"
+					"match": "(?<![A-Za-z0-9_])(?:ALVL|AR|CLVL|CRAFTALVL|CRES|DEX|DIFF|EDAM|EDEF|FILTLVL|FCR|FRES|GEMLEVEL|GEMTYPE|GEM|GOLD|ILVL|LIFE|LRES|LVLREQ|MANA|MAPID|MAPTIER|PRES|PRICE|QLVL|QTY|REPLIFE|REROLLALVL|RUNE|SOCKETS|STR)(?![A-Za-z0-9_])"
 				},
 				{
 					"name": "constant.language.condition-boolean.pd2filter",

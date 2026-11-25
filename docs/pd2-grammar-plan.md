@@ -209,9 +209,19 @@ This avoids a large, season-sensitive catalog that cannot be distinguished relia
 
 Uppercase Boolean group aliases remain highlighted because they are stable syntax-level keywords rather than individual item codes.
 
+### 18. Named value-condition shortcuts
+
+Inside `ItemDisplay[...]`, the documented arithmetic shortcut codes are highlighted as value conditions:
+
+- `STR`, `DEX`, `LIFE`, `MANA`
+- `FRES`, `CRES`, `LRES`, `PRES`
+- `EDEF`, `EDAM`, `FCR`, `AR`, `REPLIFE`
+
+Tests cover exact matches, arithmetic expressions, lowercase text, longer identifiers, and context isolation. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with verified uppercase syntax slices and avoid cataloging individual lowercase item codes.
+Continue with the remaining verified named attribute codes in small groups, then evaluate patterned numbered attribute and skill codes.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
