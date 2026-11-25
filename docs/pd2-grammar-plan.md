@@ -248,6 +248,15 @@ The Boolean item-condition list recognizes the verified potion codes:
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, invalid numeric tiers, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 22. Quest item codes
+
+The Boolean item-condition list recognizes all verified quest codes, including quest equipment:
+
+- `bks`, `bkd`, `tr1`, `ass`, `box`, `j34`, `g34`, `xyz`, `bbb`, `qbr`, `qey`, `qhr`, `mss`, `ice`, `tr2`
+- `hdm`, `msf`, `vip`, `hst`, `g33`, `qf1`, `qf2`, `hfh`
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
