@@ -181,9 +181,19 @@ The Boolean item-condition list recognizes the verified armor group aliases and 
 
 Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 15. Weapon item groups
+
+The Boolean item-condition list recognizes the verified weapon group aliases, aggregate, handedness groups, and subtype groups:
+
+- `WP1`/`AXE` through `WP13`/`SCEPTER`
+- `WEAPON`, `1H`, `2H`
+- `CLUB`, `TMACE`, `HAMMER`
+
+Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with another small verified group of Boolean item conditions, beginning with the weapon groups and evaluating class-restricted and broader item-code groups incrementally.
+Continue with the class-restricted item groups, then evaluate broader item-code groups incrementally.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
