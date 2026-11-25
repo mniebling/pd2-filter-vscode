@@ -102,6 +102,55 @@ describe('Boolean item conditions', () => {
 		'jew',
 		'rin',
 		'amu',
+		'gcv',
+		'gfv',
+		'gsv',
+		'gzv',
+		'gzvs',
+		'gpv',
+		'gpvs',
+		'gcy',
+		'gfy',
+		'gsy',
+		'gly',
+		'glys',
+		'gpy',
+		'gpys',
+		'gcb',
+		'gfb',
+		'gsb',
+		'glb',
+		'glbs',
+		'gpb',
+		'gpbs',
+		'gcg',
+		'gfg',
+		'gsg',
+		'glg',
+		'glgs',
+		'gpg',
+		'gpgs',
+		'gcr',
+		'gfr',
+		'gsr',
+		'glr',
+		'glrs',
+		'gpr',
+		'gprs',
+		'gcw',
+		'gfw',
+		'gsw',
+		'glw',
+		'glws',
+		'gpw',
+		'gpws',
+		'skc',
+		'skf',
+		'sku',
+		'skl',
+		'skls',
+		'skz',
+		'skzs',
 		'CL1',
 		'CL2',
 		'CL3',
@@ -146,7 +195,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['mag', 'Rare', 'id', 'eth', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'AQV', 'Aqv2', 'TSC', 'Cm1p', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
+	it.each(['mag', 'Rare', 'id', 'eth', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'AQV', 'Aqv2', 'TSC', 'Cm1p', 'GCV', 'Gpvs', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -224,6 +273,9 @@ describe('Boolean item conditions', () => {
 		'jewel',
 		'rings',
 		'amulet',
+		'gcv2',
+		'gpvs_stack',
+		'skull',
 		'CL10',
 		'CL1_ITEM',
 		'DRUIDIC',
@@ -263,7 +315,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['MAG', 'RARE', 'ID', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'aqv', 'cqv3', 'tsc', 'cm1', 'jew', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
+	it.each(['MAG', 'RARE', 'ID', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'aqv', 'cqv3', 'tsc', 'cm1', 'jew', 'gcv', 'gpvs', 'skzs', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
 		await expectScopes(`Alias[VISIBLE]: ${condition}`, [
 			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
 			{ text: '[', scope: bracketScope },

@@ -220,6 +220,15 @@ The Boolean item-condition list recognizes the verified miscellaneous gear codes
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 19. Gem item codes
+
+The Boolean item-condition list recognizes the complete verified gem code matrix, including the second codes for stacked flawless and perfect gems:
+
+- Amethyst, Topaz, Sapphire, Emerald, Ruby, and Diamond codes from chipped through perfect
+- Skull codes `skc`, `skf`, `sku`, `skl`/`skls`, `skz`/`skzs`
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
