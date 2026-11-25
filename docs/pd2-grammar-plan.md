@@ -257,6 +257,16 @@ The Boolean item-condition list recognizes all verified quest codes, including q
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 23. PD2-specific item codes
+
+The Boolean item-condition list recognizes the current verified PD2-specific item codes:
+
+- map codes from `t11` through `t62`, including `t3a` and the documented gaps
+- map-crafting orb codes from `imma` through `iwss`
+- Worldstone, Larzuk, map navigation, jewel-fragment, and rare-utility item codes
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, unsupported map codes, longer identifiers, and isolation from Alias replacements. This season-sensitive catalog was refreshed against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.

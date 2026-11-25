@@ -46,6 +46,9 @@ ItemDisplay[tpfs OR tpgs OR tpcs OR tpls OR tpfm OR tpgm OR tpcm OR tplm OR tpfl
 ItemDisplay[opl OR gpl OR opm OR gpm OR ops OR gps]: %NAME%
 ItemDisplay[bks OR bkd OR tr1 OR ass OR box OR j34 OR g34 OR xyz OR bbb OR qbr OR qey OR qhr OR mss OR ice OR tr2]: %NAME%
 ItemDisplay[hdm OR msf OR vip OR hst OR g33 OR qf1 OR qf2 OR hfh]: %NAME%
+ItemDisplay[t11 OR t17 OR t21 OR t3a OR t41 OR t51 OR t61]: %NAME%
+ItemDisplay[imma OR irma OR imra OR irra OR upma OR urma OR rera OR rrra OR scou OR fort OR upmp OR scrb OR iwss]: %NAME%
+ItemDisplay[wss OR imrn OR lbox OR lpp OR lmal OR jewf OR cwss OR rtp OR rid OR rkey OR lsvl OR llmr]: %NAME%
 ItemDisplay[(AMAZON OR ASSASSIN OR BARBARIAN OR DRUID OR NECROMANCER OR PALADIN OR SORCERESS) AND GROUND]: %NAME%
 ItemDisplay[SHOP OR EQUIPPED OR MERC OR INVENTORY OR CUBE OR STASH]: %NAME%
 ItemDisplay[ANYDISCOVERED OR ALLDISCOVERED OR ANYOWNED OR ALLOWNED]: %NAME%
