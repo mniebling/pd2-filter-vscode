@@ -267,6 +267,12 @@ The Boolean item-condition list recognizes the current verified PD2-specific ite
 
 These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, unsupported map codes, longer identifiers, and isolation from Alias replacements. This season-sensitive catalog was refreshed against the Item Filtering wiki on 2026-11-24.
 
+### 24. Corrupted hero ear item codes
+
+The Boolean item-condition list recognizes the verified corrupted hero ear codes `ivea`, `ivez`, `iveb`, `ived`, `iven`, `ivep`, and `ives`.
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.
