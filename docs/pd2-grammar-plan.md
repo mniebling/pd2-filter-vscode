@@ -210,6 +210,16 @@ The Boolean item-condition list recognizes the verified arrow and bolt item code
 
 Unlike the uppercase group aliases, these item codes are matched lowercase-only. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 18. Miscellaneous gear item codes
+
+The Boolean item-condition list recognizes the verified miscellaneous gear codes:
+
+- `tsc`, `isc`, `tbk`, `ibk`, `key`, `leg`, `ear`, `std`
+- `cm1`, `cm2`, `cm3`, `cm1p`, `cm2p`, `cm3p`
+- `jew`, `rin`, `amu`
+
+These item codes remain lowercase-only and token-bounded. Tests cover exact matches, mixed case, longer identifiers, numeric suffix boundaries, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
 Continue with another small, verified item-code category, then evaluate larger tables only in bounded slices.

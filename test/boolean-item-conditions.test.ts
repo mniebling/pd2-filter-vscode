@@ -85,6 +85,23 @@ describe('Boolean item conditions', () => {
 		'cqv',
 		'cqv2',
 		'cqv3',
+		'tsc',
+		'isc',
+		'tbk',
+		'ibk',
+		'key',
+		'leg',
+		'ear',
+		'std',
+		'cm1',
+		'cm2',
+		'cm3',
+		'cm1p',
+		'cm2p',
+		'cm3p',
+		'jew',
+		'rin',
+		'amu',
 		'CL1',
 		'CL2',
 		'CL3',
@@ -129,7 +146,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['mag', 'Rare', 'id', 'eth', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'AQV', 'Aqv2', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
+	it.each(['mag', 'Rare', 'id', 'eth', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'AQV', 'Aqv2', 'TSC', 'Cm1p', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -195,6 +212,18 @@ describe('Boolean item conditions', () => {
 		'aqv2_item',
 		'cqv30',
 		'CQV2',
+		'tsc2',
+		'iscroll',
+		'tomebook',
+		'keyring',
+		'legend',
+		'ears',
+		'standard',
+		'cm10',
+		'cm1pvp',
+		'jewel',
+		'rings',
+		'amulet',
 		'CL10',
 		'CL1_ITEM',
 		'DRUIDIC',
@@ -234,7 +263,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['MAG', 'RARE', 'ID', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'aqv', 'cqv3', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
+	it.each(['MAG', 'RARE', 'ID', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'aqv', 'cqv3', 'tsc', 'cm1', 'jew', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
 		await expectScopes(`Alias[VISIBLE]: ${condition}`, [
 			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
 			{ text: '[', scope: bracketScope },
