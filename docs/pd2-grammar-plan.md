@@ -229,9 +229,18 @@ The named value-condition list recognizes the verified core equipment attributes
 
 `SOCK` is recognized alongside the existing `SOCKETS` name. Tests cover exact matches, arithmetic use, lowercase text, longer identifiers, and context isolation. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 20. Utility named attribute conditions
+
+The named value-condition list recognizes the remaining non-Boolean utility attributes:
+
+- `MFIND`, `GFIND`
+- `MAEK`, `DTM`, `REPAIR`, `ARPER`
+
+Tests cover exact matches, arithmetic use, lowercase text, longer identifiers, and context isolation. `FOOLS` remains a separate Boolean-condition candidate because the wiki documents it as a Boolean condition. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with the remaining named attribute conditions, beginning with utility and find-related attributes, then evaluate patterned numbered attribute and skill codes.
+Add the verified `FOOLS` Boolean condition, then evaluate patterned numbered attribute and skill codes.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

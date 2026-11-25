@@ -17,12 +17,14 @@ describe('condition identifiers', () => {
 	it.each([
 		'ALVL',
 		'AR',
+		'ARPER',
 		'CLVL',
 		'CRAFTALVL',
 		'CRES',
 		'DEF',
 		'DEX',
 		'DIFF',
+		'DTM',
 		'ED',
 		'EDAM',
 		'EDEF',
@@ -35,22 +37,26 @@ describe('condition identifiers', () => {
 		'GEM',
 		'GEMLEVEL',
 		'GEMTYPE',
+		'GFIND',
 		'GOLD',
 		'IAS',
 		'ILVL',
 		'LIFE',
 		'LRES',
 		'LVLREQ',
+		'MAEK',
 		'MANA',
 		'MAPID',
 		'MAPTIER',
 		'MAXDMG',
 		'MAXDUR',
+		'MFIND',
 		'MINDMG',
 		'PRES',
 		'PRICE',
 		'QLVL',
 		'QTY',
+		'REPAIR',
 		'REPLIFE',
 		'REROLLALVL',
 		'RES',
@@ -71,7 +77,7 @@ describe('condition identifiers', () => {
 		])
 	})
 
-	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur'])('does not scope lowercase identifier %s', async (identifier) => {
+	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur', 'mfind', 'gfind', 'dtm', 'repair'])('does not scope lowercase identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -121,6 +127,12 @@ describe('condition identifiers', () => {
 		'MINDAMAGE',
 		'MAXDAMAGE',
 		'RESIST',
+		'MFINDING',
+		'GFINDER',
+		'MAEK2',
+		'DTMODE',
+		'REPAIRED',
+		'ARPER2',
 	])('does not scope a longer identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },

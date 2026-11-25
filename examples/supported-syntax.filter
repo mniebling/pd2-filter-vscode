@@ -21,6 +21,7 @@ ItemDisplay[EDEF+EDAM+FCR+AR+REPLIFE>50]: %NAME%
 ItemDisplay[SOCK+DEF+ED+MAXDUR>10]: %NAME%
 ItemDisplay[FRW+IAS+FHR+FBR>50]: %NAME%
 ItemDisplay[MINDMG+MAXDMG>20]: %NAME%
+ItemDisplay[MFIND+GFIND+MAEK+DTM+REPAIR+ARPER>0]: %NAME%
 
 // Numbered attributes are not recognized yet
 ItemDisplay[STAT60+STAT62>10]: %NAME%
