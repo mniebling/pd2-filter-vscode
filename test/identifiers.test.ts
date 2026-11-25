@@ -77,7 +77,20 @@ describe('condition identifiers', () => {
 		])
 	})
 
-	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur', 'mfind', 'gfind', 'dtm', 'repair'])('does not scope lowercase identifier %s', async (identifier) => {
+	it.each(['STAT0', 'STAT60', 'STAT504', 'STAT9999', 'CHARSTAT14', 'CHARSTAT15', 'CHARSTAT9999'])('scopes the numbered value-condition form %s', async (condition) => {
+		await expectScopes(`ItemDisplay[${condition}>1]: %NAME%`, [
+			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
+			{ text: '[', scope: bracketScope },
+			{ text: condition, scope: valueConditionScope },
+			{ text: '>', scope: comparisonOperatorScope },
+			{ text: '1', scope: integerScope },
+			{ text: ']', scope: bracketScope },
+			{ text: ':', scope: colonScope },
+			...nameOutput,
+		])
+	})
+
+	it.each(['clvl', 'gold', 'ilvl', 'rune', 'sockets', 'sock', 'str', 'fres', 'replife', 'mindmg', 'maxdur', 'mfind', 'gfind', 'dtm', 'repair', 'stat60', 'charstat15'])('does not scope lowercase identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -133,6 +146,11 @@ describe('condition identifiers', () => {
 		'DTMODE',
 		'REPAIRED',
 		'ARPER2',
+		'STAT',
+		'STAT_60',
+		'STAT60_EXTRA',
+		'CHARSTAT',
+		'CHARSTAT15_EXTRA',
 	])('does not scope a longer identifier %s', async (identifier) => {
 		await expectScopes(`ItemDisplay[${identifier}>1]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
@@ -146,7 +164,7 @@ describe('condition identifiers', () => {
 		])
 	})
 
-	it.each(['Alias[LEVEL]: CLVL', 'Alias[SOCKETS]: SOCKETS'])('does not scope value conditions outside ItemDisplay: %s', async (line) => {
+	it.each(['Alias[LEVEL]: CLVL', 'Alias[SOCKETS]: SOCKETS', 'Alias[LEECH]: STAT60', 'Alias[CHAR]: CHARSTAT15'])('does not scope value conditions outside ItemDisplay: %s', async (line) => {
 		await expectScopes(line, [
 			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
 			{ text: '[', scope: bracketScope },

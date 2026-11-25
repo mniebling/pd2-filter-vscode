@@ -23,8 +23,9 @@ ItemDisplay[FRW+IAS+FHR+FBR>50]: %NAME%
 ItemDisplay[MINDMG+MAXDMG>20]: %NAME%
 ItemDisplay[MFIND+GFIND+MAEK+DTM+REPAIR+ARPER>0]: %NAME%
 
-// Numbered attributes are not recognized yet
+// Numbered value-condition syntax (ID existence is not validated)
 ItemDisplay[STAT60+STAT62>10]: %NAME%
+ItemDisplay[CHARSTAT14+CHARSTAT15>1000]: %NAME%
 
 // Boolean item conditions: rarity, tier, and item properties
 ItemDisplay[(NMAG OR MAG OR RARE OR UNI OR SET OR CRAFT)]: %NAME%

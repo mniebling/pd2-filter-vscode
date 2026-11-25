@@ -242,9 +242,15 @@ Tests cover exact matches, arithmetic use, lowercase text, longer identifiers, a
 
 The named-attribute table's `FOOLS` entry is highlighted as a Boolean item condition, matching the wiki's documented Boolean classification. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. This code was verified against the Item Filtering wiki on 2026-11-24.
 
+### 22. Numbered value-condition syntax
+
+Inside `ItemDisplay[...]`, `STAT` and `CHARSTAT` followed by one or more decimal digits are highlighted as value conditions.
+
+The wiki's numbered IDs are sparse and season-sensitive, so the grammar recognizes their syntax without validating whether a particular numeric ID currently exists. Tests cover representative documented IDs, arbitrary numeric forms, lowercase text, malformed suffixes, and context isolation. This form was verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Evaluate patterned numbered attribute and skill codes, beginning with their syntax boundaries and whether full range validation is appropriate.
+Evaluate patterned multi-layered and skill codes, beginning with their parameter syntax and avoiding semantic ID validation.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
