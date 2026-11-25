@@ -28,6 +28,7 @@ describe('Boolean item conditions', () => {
 		'ETH',
 		'RW',
 		'GEMMED',
+		'FOOLS',
 		'JEWELRY',
 		'CHARM',
 		'QUIVER',
@@ -123,7 +124,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['mag', 'Rare', 'id', 'eth', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
+	it.each(['mag', 'Rare', 'id', 'eth', 'fools', 'Fools', 'jewelry', 'Charm', 'eq1', 'Armor', 'wp10', 'Weapon', 'cl1', 'Class', 'ground', 'Amazon'])('does not scope mixed-case Boolean item condition %s', async (condition) => {
 		await expectScopes(`ItemDisplay[${condition}]: %NAME%`, [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
@@ -150,6 +151,8 @@ describe('Boolean item conditions', () => {
 		'ETHEREAL',
 		'RUNEWORD',
 		'GEMMED2',
+		'FOOLISH',
+		'FOOLS2',
 		'JEWELRY2',
 		'CHARMED',
 		'QUIVERED',
@@ -235,7 +238,7 @@ describe('Boolean item conditions', () => {
 		])
 	})
 
-	it.each(['MAG', 'RARE', 'ID', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
+	it.each(['MAG', 'RARE', 'ID', 'FOOLS', 'CHARM', 'MISC', 'EQ1', 'ARMOR', 'WP10', 'SWORD', 'WEAPON', 'CL1', 'DRU', 'CLASS', 'GROUND', 'SHOP'])('does not scope Boolean item condition %s outside ItemDisplay', async (condition) => {
 		await expectScopes(`Alias[VISIBLE]: ${condition}`, [
 			{ text: 'Alias', scope: 'keyword.control.alias.pd2filter' },
 			{ text: '[', scope: bracketScope },

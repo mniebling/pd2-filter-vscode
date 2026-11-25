@@ -238,9 +238,13 @@ The named value-condition list recognizes the remaining non-Boolean utility attr
 
 Tests cover exact matches, arithmetic use, lowercase text, longer identifiers, and context isolation. `FOOLS` remains a separate Boolean-condition candidate because the wiki documents it as a Boolean condition. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 21. Fool's modifier Boolean condition
+
+The named-attribute table's `FOOLS` entry is highlighted as a Boolean item condition, matching the wiki's documented Boolean classification. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. This code was verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Add the verified `FOOLS` Boolean condition, then evaluate patterned numbered attribute and skill codes.
+Evaluate patterned numbered attribute and skill codes, beginning with their syntax boundaries and whether full range validation is appropriate.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

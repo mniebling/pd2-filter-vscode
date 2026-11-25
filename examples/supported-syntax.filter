@@ -28,7 +28,7 @@ ItemDisplay[STAT60+STAT62>10]: %NAME%
 
 // Boolean item conditions: rarity, tier, and item properties
 ItemDisplay[(NMAG OR MAG OR RARE OR UNI OR SET OR CRAFT)]: %NAME%
-ItemDisplay[(NORM OR EXC OR ELT) AND (ID OR INF OR SUP OR ETH OR RW OR GEMMED)]: %NAME%
+ItemDisplay[(NORM OR EXC OR ELT) AND (ID OR INF OR SUP OR ETH OR RW OR GEMMED OR FOOLS)]: %NAME%
 
 // Boolean item groups: miscellaneous, armor, weapons, and class-restricted items
 ItemDisplay[JEWELRY OR CHARM OR QUIVER OR MISC]: %NAME%
