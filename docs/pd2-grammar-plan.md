@@ -219,9 +219,19 @@ Inside `ItemDisplay[...]`, the documented arithmetic shortcut codes are highligh
 
 Tests cover exact matches, arithmetic expressions, lowercase text, longer identifiers, and context isolation. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 19. Core named attribute conditions
+
+The named value-condition list recognizes the verified core equipment attributes:
+
+- `SOCK`, `DEF`, `ED`, `MAXDUR`, `RES`
+- `FRW`, `IAS`, `FHR`, `FBR`
+- `MINDMG`, `MAXDMG`
+
+`SOCK` is recognized alongside the existing `SOCKETS` name. Tests cover exact matches, arithmetic use, lowercase text, longer identifiers, and context isolation. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with the remaining verified named attribute codes in small groups, then evaluate patterned numbered attribute and skill codes.
+Continue with the remaining named attribute conditions, beginning with utility and find-related attributes, then evaluate patterned numbered attribute and skill codes.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 

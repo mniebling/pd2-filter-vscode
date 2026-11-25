@@ -14,10 +14,15 @@ ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
 // BETWEEN range operator with integer bounds
 ItemDisplay[SOCKETS~1-2]: %NAME%
 
-// Named value-condition shortcuts and addition
+// Named value conditions and addition
 ItemDisplay[STR+DEX+LIFE+MANA>100]: %NAME%
-ItemDisplay[FRES+CRES+LRES+PRES>79]: %NAME%
+ItemDisplay[FRES+CRES+LRES+PRES+RES>79]: %NAME%
 ItemDisplay[EDEF+EDAM+FCR+AR+REPLIFE>50]: %NAME%
+ItemDisplay[SOCK+DEF+ED+MAXDUR>10]: %NAME%
+ItemDisplay[FRW+IAS+FHR+FBR>50]: %NAME%
+ItemDisplay[MINDMG+MAXDMG>20]: %NAME%
+
+// Numbered attributes are not recognized yet
 ItemDisplay[STAT60+STAT62>10]: %NAME%
 
 // Boolean item conditions: rarity, tier, and item properties
