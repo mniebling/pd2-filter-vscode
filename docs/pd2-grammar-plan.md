@@ -160,9 +160,20 @@ The Boolean item-condition list also recognizes verified mutable character, loca
 
 Matching remains uppercase-only, token-bounded, and contextual to `ItemDisplay[...]`. The wiki's documented `ALLOWNED` spelling is retained verbatim. Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
 
+### 13. Miscellaneous item groups
+
+The Boolean item-condition list recognizes the verified miscellaneous item groups:
+
+- `JEWELRY`
+- `CHARM`
+- `QUIVER`
+- `MISC`
+
+Tests cover exact matches, mixed case, longer identifiers, and isolation from Alias replacements. These codes were verified against the Item Filtering wiki on 2026-11-24.
+
 ## Handoff: current next action
 
-Continue with another small verified group of Boolean item conditions, beginning with general item groups and then evaluating broader item-code groups incrementally.
+Continue with another small verified group of Boolean item conditions, beginning with the armor groups and evaluating weapon and broader item-code groups incrementally.
 
 After each slice, update the completed-milestone summary and keep `examples/supported-syntax.filter` aligned with implemented behavior.
 
