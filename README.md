@@ -2,9 +2,10 @@
 
 A VSCode syntax highlighter for Project Diablo 2 loot filters.
 
-It highlights verified PD2 wrapper syntax, based on the [PD2 Wiki item filtering](https://wiki.projectdiablo2.com/wiki/Item_Filtering) reference.
+It highlights PD2 syntax based on the [PD2 Wiki item filtering](https://wiki.projectdiablo2.com/wiki/Item_Filtering) reference.
 
-The extension doesn’t automatically take over `.filter` files because other games use that extension too. To enable highlighting automatically, choose one of these examples for your workspace’s `.vscode/settings.json`.
+The extension doesn’t automatically take over `.filter` files because other games use that file type too.
+To enable highlighting, choose one of these examples for your workspace’s `.vscode/settings.json`.
 
 **Only in a `pd2` folder** (recommended for mixed workspaces):
 
