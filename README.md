@@ -31,7 +31,7 @@ To associate a single file, run `Change Language Mode` in the command palette an
 
 ## Scope
 
-The extension highlights PD2 rule headers and comments, common conditions and operators, and output syntax such as value placeholders, colors, notifications, and item descriptions. Formula highlighting is partial.
+The extension highlights PD2 rule headers and comments, common conditions and operators, and output syntax such as value placeholders, colors, notifications, and item descriptions. Formulas have partial support.
 
 Lowercase item codes are intentionally left unhighlighted. The extension doesn’t validate filters or evaluate rules.
 
@@ -51,13 +51,9 @@ To test an installable build instead, run `npm run package`, then use **Extensio
 
 ## Testing
 
-Run the grammar tests with:
-
-```sh
-npm test
-```
+Run the grammar tests with `npm test`.
 
 Run `npm run check` to run linting, type checking, and the grammar tests together.
 
-The tests use [`vscode-textmate`](https://github.com/microsoft/vscode-textmate) to tokenize inline input with the same TextMate grammar that VS Code loads.
-[`vscode-oniguruma`](https://github.com/microsoft/vscode-oniguruma) supplies the compatible regex engine to the test process.
+The tests use [`vscode-textmate`](https://github.com/microsoft/vscode-textmate) to tokenize input with the same TextMate grammar that VS Code loads.
+[`vscode-oniguruma`](https://github.com/microsoft/vscode-oniguruma) supplies the regex engine to the test process.
