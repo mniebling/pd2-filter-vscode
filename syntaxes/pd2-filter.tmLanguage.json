@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "PD2 Filter (Basic)",
-	"scopeName": "source.pd2filter-basic",
+	"name": "Project Diablo 2 Loot Filter",
+	"scopeName": "source.pd2-filter",
 	"patterns": [
 		{
 			"include": "#filter-name-rule"

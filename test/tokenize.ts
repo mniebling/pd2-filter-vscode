@@ -9,7 +9,7 @@ import type { IRawGrammar, StateStack } from 'vscode-textmate'
 
 const require = createRequire(import.meta.url)
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const scopeName = 'source.pd2filter-basic'
+const scopeName = 'source.pd2-filter'
 
 // Reuse one initialized engine so the test suite exercises a stable grammar environment.
 let registryPromise: Promise<Registry> | undefined
@@ -25,7 +25,7 @@ async function createRegistry(): Promise<Registry> {
 			if (requestedScope !== scopeName) return null
 
 			// Load the shipped grammar directly so tests cannot drift from extension behavior.
-			const grammarPath = path.join(root, 'syntaxes/pd2filter-basic.tmLanguage.json')
+			const grammarPath = path.join(root, 'syntaxes/pd2-filter.tmLanguage.json')
 			return parseRawGrammar(await fs.readFile(grammarPath, 'utf8'), grammarPath) as IRawGrammar
 		},
 	})

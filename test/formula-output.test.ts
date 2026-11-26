@@ -40,14 +40,14 @@ describe('ItemDisplay formula output', () => {
 	})
 
 	it('scopes nested calls, decimals, operators, and separators', async () => {
-		await expectScopes('ItemDisplay[]: $f(ROUND((STAT1+1.5)/2, 0))', [
+		await expectScopes('ItemDisplay[]: $f(MAX((STAT1+1.5)/2, 0))', [
 			{ text: 'ItemDisplay', scope: itemDisplayKeywordScope },
 			{ text: '[', scope: bracketScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
 			{ text: ' ', scope: outputScope },
 			{ text: '$f(', scope: formulaDelimiterScope },
-			{ text: 'ROUND', scope: formulaScope },
+			{ text: 'MAX', scope: formulaScope },
 			{ text: '(', scope: formulaDelimiterScope },
 			{ text: '(', scope: formulaDelimiterScope },
 			{ text: 'STAT1', scope: formulaScope },

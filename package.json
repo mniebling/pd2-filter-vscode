@@ -1,9 +1,9 @@
 {
 	"name": "pd2-filter",
-	"displayName": "Project Diablo 2 Filter",
+	"displayName": "Project Diablo 2 Loot Filter",
 	"description": "Syntax highlighting for Project Diablo 2 loot filters.",
 	"version": "0.0.12",
-	"publisher": "bling",
+	"publisher": "mniebling",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mniebling/pd2-filter-vscode.git"
@@ -19,19 +19,18 @@
 	"contributes": {
 		"languages": [
 			{
-				"id": "pd2filter-basic",
+				"id": "pd2-filter",
 				"aliases": [
-					"PD2 Filter (Basic)",
-					"pd2filter-basic"
+					"Project Diablo 2 Loot Filter"
 				],
 				"configuration": "./language-configuration.json"
 			}
 		],
 		"grammars": [
 			{
-				"language": "pd2filter-basic",
-				"scopeName": "source.pd2filter-basic",
-				"path": "./syntaxes/pd2filter-basic.tmLanguage.json"
+				"language": "pd2-filter",
+				"scopeName": "source.pd2-filter",
+				"path": "./syntaxes/pd2-filter.tmLanguage.json"
 			}
 		]
 	},

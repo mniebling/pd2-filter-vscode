@@ -8,8 +8,8 @@ ItemDisplay[]: %NAME%
 ItemDisplay[(MAG OR RARE) AND !ID]: %NAME%
 
 // Comparison operators
-ItemDisplay[CLVL>=30 AND SOCK=0 AND QUALITY!=UNI]: %NAME%
-ItemDisplay[ILVL<10 OR QUALITY==UNI]: %NAME%
+ItemDisplay[CLVL>=30 AND SOCK=0 AND FILTLVL!=2]: %NAME%
+ItemDisplay[ILVL<10 OR QLVL==30]: %NAME%
 
 // BETWEEN range operator with integer bounds
 ItemDisplay[SOCKETS~1-2]: %NAME%
@@ -136,9 +136,11 @@ ItemDisplay[]: %NAME%%TIER-12%
 // Continue checking later rules
 ItemDisplay[SOCKETS>0]: %NAME% [%SOCKETS%]%CONTINUE%
 
-// Add new lines without accidental blanks
-ItemDisplay[]: Item Level: %ILVL%%NL%Sockets: %SOCKETS%
-ItemDisplay[]: First%CL%Second
+// %NL% adds a new line in the description
+ItemDisplay[]: %NAME%{Item Level: %ILVL%%NL%Sockets: %SOCKETS%}
+
+// %CL% adds a new line only if not already at the start of one
+ItemDisplay[]: %NAME%{First%CL%Second}
 
 // Add a space only when needed
 ItemDisplay[]: %NAME%%CS%[%ILVL%]
@@ -152,11 +154,11 @@ ItemDisplay[]: {%NAME%}
 
 // Named formula definitions
 Formula[DAMAGE_TOTAL]: STAT1+STAT2
-Formula[ROUNDED_DAMAGE]: ROUND((STAT1+1.5)/2, 0)
+Formula[ROUNDED_DAMAGE]: ROUND((STAT1+1.5)/2)
 
 // Inline formulas in output
 ItemDisplay[]: Total: $f(STAT1+STAT2)
-ItemDisplay[]: Rounded: $f(ROUND((STAT1+1.5)/2, 0))
+ItemDisplay[]: Rounded: $f(ROUND((STAT1+1.5)/2))
 
 // Named formula references in conditions
 ItemDisplay[FORMULA_DAMAGE_TOTAL>25]: %NAME%

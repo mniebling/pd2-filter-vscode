@@ -4,7 +4,7 @@
 		"source.organizeImports": "explicit"
 	},
 	"files.associations": {
-		"*.filter": "pd2filter-basic"
+		"*.filter": "pd2-filter"
 	},
 	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }

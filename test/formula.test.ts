@@ -25,13 +25,13 @@ describe('Formula', () => {
 	})
 
 	it('scopes formula expression punctuation and numbers in the definition body', async () => {
-		await expectScopes('Formula[_A]: ROUND(STAT1+1.5, 0)', [
+		await expectScopes('Formula[_A]: MAX(STAT1+1.5, 0)', [
 			{ text: 'Formula', scope: formulaKeywordScope },
 			{ text: '[', scope: bracketScope },
 			{ text: '_A', scope: formulaNameScope },
 			{ text: ']', scope: bracketScope },
 			{ text: ':', scope: colonScope },
-			{ text: ' ROUND', scope: formulaBodyScope },
+			{ text: ' MAX', scope: formulaBodyScope },
 			{ text: '(', scope: formulaDelimiterScope },
 			{ text: 'STAT1', scope: formulaBodyScope },
 			{ text: '+', scope: formulaOperatorScope },

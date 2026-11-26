@@ -29,6 +29,6 @@ describe('representative filter corpus', () => {
 		expect(scopedText.get('keyword.control.output.pd2filter')).toContain('%CONTINUE%')
 		expect(scopedText.get('meta.description.item-display.pd2filter')).toEqual(expect.arrayContaining(['{', 'Resist total: ', '}']))
 		expect(scopedText.get('meta.output.item-display.pd2filter')).toEqual(expect.arrayContaining([' ', '%NAME%', ' Socket Me']))
-		expect(scopedText.get('source.pd2filter-basic')).toContain('RWBASES')
+		expect(scopedText.get('source.pd2-filter')).toContain('RWBASES')
 	})
 })
